@@ -1,7 +1,7 @@
 
 <?php
 // multiple recipients
-$to  = 'kasperpeulen@gmail.com';
+$to  = 'bfindell@gmail.com';
 $subject = 'send score';
 $message = $_GET['score'];
 $message2 = $_GET['name'];
