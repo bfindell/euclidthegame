@@ -18,7 +18,7 @@ Go to <a href="/Level16/">Level 16</a>.
 </div>
 <script type="text/javascript">
 	{% include parameters480p.js %}
-    parameters.customToolBar = "501 | 5 | 15 | 18 | 10 | 100001 | 100002 | 9 | 4 | 3 | 100003 | 53";
+    parameters.customToolBar = "501 | 5 19 | 15 18 | 10 | 100001 | 8 9 4 3 | 53";
 	parameters.ggbBase64 = "{% base64 ggb/Level15.ggb %}" ;	
 </script>
 
@@ -28,7 +28,17 @@ Go to <a href="/Level16/">Level 16</a>.
 <script type="text/javascript">
 {% include testobjects.js %}
 
- checkobject("target1");
+checkobject("incenter",0,0.5);
+if (drawn("incenter")){
+	Command('progress = 50');
+}
+checkobject("F1",0,0.5);
+checkobject("F2",0,0.5);
+checkobject("F3",0,0.5);
+if (drawn("F2")||drawn("F2")||drawn("F3")){
+	Command('progress = 75');
+}
+checkobject("target1");
 
 LevelCompleted(drawn("target1"),4);
 }

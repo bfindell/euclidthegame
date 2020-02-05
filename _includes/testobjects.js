@@ -91,7 +91,7 @@ function round(value) {
 }
 if ( round((n-b)*(x-m)) === round((y-n)*(m-a))){
 Command('Delete['+obj+']');
-Command('Text["You can\'t use the bisecting tool if the angle is 180 degrees !",'+abspos("0.02","-0.632915")+']');
+Command('Text["You cannot use the bisecting tool if the angle is 180 degrees !",'+abspos("0.02","-0.532915")+']');
 }
 }
 }
