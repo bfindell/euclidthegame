@@ -18,7 +18,7 @@ Go to <a href="/Level13/">Level 13</a>.
 </div>
 <script type="text/javascript">
 	{% include parameters480p.js %}
-    parameters.customToolBar = "501 | 5 19 | 15 18 | 10 | 100001 | 9 | 4 | 3 | 53" // | 100002 100003;
+    parameters.customToolBar = "501 | 5 19 | 15 18 | 10 | 100001 | 8 9 4 3 | 53" // | 100002 100003;
 	parameters.ggbBase64 = "{% base64 ggb/Level12.ggb %}" ;	
 </script>
 
@@ -28,15 +28,31 @@ Go to <a href="/Level13/">Level 13</a>.
 <script type="text/javascript">
 {% include testobjects.js %}
 
-checkpointontarget("target2",0,0.5)
-checkpointontarget("target2b",0,0.5)
-checkdirection("target2",0,0);
-checkdirection("target2b",0,0);
-
-if (drawn("ptarget2a")||drawn("ptarget2b")){
+checkobject("side1a",0,0.5);
+checkobject("side1b",0,0.5);
+if (drawn("side1a")||drawn("side1b")){
+	Command('progress = 25');
+}
+checkobject("side3a",0,0.5);
+checkobject("side3b",0,0.5);
+if (drawn("side3a")||drawn("side3b")){
 	Command('progress = 50');
-   }	
+}
+checkobject("target2a",0,0.5);
+checkobject("target2b",0,0.5);
+checkobject("target2c",0,0.5);
+checkobject("target2d",0,0.5);
 
-LevelCompleted(drawn("target2")|| drawn("target2b"),4);
+if (drawn("target2a")||drawn("target2b")||drawn("target2c")||drawn("target2d")){
+	Command('progress = 75');
+}
+
+checkpointontarget("target3a",0,0.5);
+checkpointontarget("target3b",0,0.5);
+checkdirection("target3a",0,0);
+checkdirection("target3b",0,0);
+
+LevelCompleted(drawn("target3a")||drawn("target3b"),4);
+
 }
 </script>
