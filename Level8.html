@@ -5,8 +5,18 @@ cat: level
 lang: en
 number: 8
 ---
-<p id="goal"><b>Goal:</b> Construct a line segment with the same length and same direction as line segment AB but with beginpoint C.
+<p id="goal"><b>Goal:</b> Construct a line segment with the same length and the same direction as line segment AB but beginning at C.
 </p>
+
+<script>
+$(document).ready(function(){
+  $("#button").click(function(){
+    $("#hint").toggle();
+  });
+});
+</script>
+<p><span id="button"><b>Show hint: &nbsp;</b></span> <span style="display:none" id="hint"> First copy the segment away from the line.</span></p>
+
 
 <p id="winningimg">
 <img src="/img/Level{{page.number}}.png"/ >
