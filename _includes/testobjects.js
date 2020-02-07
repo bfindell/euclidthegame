@@ -91,7 +91,7 @@ function round(value) {
 }
 if ( round((n-b)*(x-m)) === round((y-n)*(m-a))){
 Command('Delete['+obj+']');
-Command('Text["You cannot use the bisecting tool if the angle is 180 degrees !",'+abspos("0.02","-0.532915")+']');
+Command('Text["You cannot use the bisecting tool if the angle is 180 degrees!",'+abspos("0.02","-0.532915")+']');
 }
 }
 }
@@ -183,13 +183,13 @@ var setVisible = ggbApplet.setVisible;
 function LevelCompleted(condition,mincount){
  if(condition){
  	Command('progress = 100');
-	Command('Complete = Text["Level completed !",  '+abspos("0.15","-0.13")+']');   
+	Command('Complete = Text["Level completed!",  '+abspos("0.15","-0.13")+']');   
     var count = ggbApplet.getValue("countnumber");
 	if (primitives && (count === minlevel{{page.number}}p)){
-	Command('score2 = Text["Perfect ! You have done this challenge in a minimum number of primitive moves!", '+abspos("0.35","-0.602915")+']');}
+	Command('score2 = Text["Perfect! You have done this challenge in a minimum number of primitive moves!", '+abspos("0.35","-0.602915")+']');}
 	if (!primitives)
 	{ if(count === minlevel{{page.number}}){
-	Command('score2 = Text["Perfect ! You have done this challenge in a minimum number of moves!", '+abspos("0.35","-0.602915")+']');}}
+	Command('score2 = Text["Perfect! You have done this challenge in a minimum number of moves!", '+abspos("0.35","-0.602915")+']');}}
    //document.getElementById("level").style.display="inline-block";	
 	  $( "#hidden" ).slideDown(1000);	
    $( "#hiddencomments" ).toggle();	
