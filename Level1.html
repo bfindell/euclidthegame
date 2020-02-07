@@ -16,7 +16,7 @@ $(document).ready(function(){
   });
 });
 </script>
-<p><span id="button"><b>Show hint: &nbsp;</b></span> <span style="display:none" id="hint"> Don't randomly create new points.  Instead, create 2 circles with radius AB.</span></p>
+<p><span id="button"><b>Show hint: &nbsp;</b></span> <span style="display:none" id="hint"> Don't randomly create new points.  Instead, create 2 circles with radius AB.  (And don't use the arrow tool yet.)</span></p>
 
 <p id="winningimg">
 <img src="data:image/png;base64, {% base64 img/Level1.png %}">
@@ -24,12 +24,12 @@ $(document).ready(function(){
 
 <div id="hidden" style="display: none">
 <p id="level" onclick="location.href='/Level2/';" style="cursor:pointer;">
-You unlocked a new tool: Constructing equilateral triangles! Go to <a href="/Level2/">level 2</a> !
+You unlocked a new tool: Constructing equilateral triangles! Use the arrow tool to move the free points A and B and observe that the triangle remains equilateral!  Then go to <a href="/Level2/">level 2</a> !
 </p>
 </div>
 <script type="text/javascript">
 	{% include parameters480p.js %}
-    parameters.customToolBar = "501 | 5 | 15 | 18 | 10"; //| 100001 | 100002 | 9 | 4 | 3 | 100003 | 53";
+    parameters.customToolBar = "0 | 501 | 5 | 15 | 18 | 10"; //| 100001 | 100002 | 9 | 4 | 3 | 100003 | 53";
 	parameters.ggbBase64 = "{% base64 ggb/Level1.ggb %}" ;
 	parameters.language = "en"
 	
