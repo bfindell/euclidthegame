@@ -1,9 +1,9 @@
 # Site settings
 title: "Euclid: The Game"
-email: "kasperpeulen@gmail.com"
+email: "bfindell@gmail.com"
 description: "This website tries to gamify The Elements a book written by Euclid."
 baseurl: ""
-url: "http://euclidthegame.com"
+url: "https://euclid.findell.org"
 
 # Defaults
 defaults:
