@@ -1,0 +1,51 @@
+---
+layout: default
+title: SSA Triangles?
+lang: en
+---
+<p id="goal">
+	<b>Goal:</b> Construct a triangle given two sides and the non-included angle. Show that there are <b>two</b> such triangles.  
+</p>
+
+<p id="winningimg">
+<img src="/img/SSA.png"/ >
+</p>
+<div id="hidden" style="display: none">
+<p id="level">
+Nice!  Because there are two non-congruent triangles, SSA cannot guarantee congruence.  
+
+Adjust the givens to observe that sometimes there is only one triangle, and at other times there are none.  
+</p>
+</div>
+
+<script type="text/javascript">
+	{% include parameters480p.js %}
+    parameters.customToolBar = "0 | 1 501 | 5 19 | 15 2 18 | 10 53 | 100001 | 8 9 4 3 | 40 41 42";
+	parameters.ggbBase64 = "{% base64 ggb/SSA.ggb %}" ;
+	parameters.language = "en"
+</script>
+
+<div id="applet_container">
+</div>
+
+<script type="text/javascript">
+{% include testobjects.js %}
+
+checkobject("C1",0.3,-0.3);
+checkobject("C2",0.3,0.3);
+checkdirection("target1",0,0);
+checkdirection("target2",0,0);
+
+
+if (drawn("C1") || drawn("C2")){
+	Command('progress = 30');
+}
+
+if (drawn("target1") || drawn("target2")){
+	Command('progress = 60');
+}
+
+LevelCompleted(drawn("target1") && drawn("target2"),3);
+
+}
+</script>
