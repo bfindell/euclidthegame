@@ -1,19 +1,22 @@
 ---
 layout: default
-title: SSA Triangles?
+title: Level 26
+cat: level
 lang: en
+number: 26
+
 ---
 <p id="goal">
 	<b>Goal:</b> Construct a triangle given two sides and the non-included angle. Show that there are <b>two</b> such triangles.  
 </p>
 
+
 <p id="winningimg">
-<img src="/img/SSA.png"/ >
+<img src="/img/Level{{page.number}}.png"/ >
 </p>
 <div id="hidden" style="display: none">
 <p id="level">
-Nice!  Because there are two non-congruent triangles, SSA cannot guarantee congruence.  
-
+<b>Nice!</b>  Because there are two non-congruent triangles, SSA cannot guarantee congruence.  <br><br>
 Adjust the givens to observe that sometimes there is only one triangle, and at other times there are none.  
 </p>
 </div>
@@ -21,7 +24,7 @@ Adjust the givens to observe that sometimes there is only one triangle, and at o
 <script type="text/javascript">
 	{% include parameters480p.js %}
     parameters.customToolBar = "0 | 1 501 | 5 19 | 15 2 18 | 10 53 | 100001 | 8 9 4 3 | 40 41 42";
-	parameters.ggbBase64 = "{% base64 ggb/SSA.ggb %}" ;
+	parameters.ggbBase64 = "{% base64 ggb/Level26.ggb %}" ;
 	parameters.language = "en"
 </script>
 

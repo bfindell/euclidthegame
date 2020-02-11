@@ -49,5 +49,5 @@ var minlevel24 = 6;
 var minlevel24p = 8;
 var minlevel25 = 10;
 var minlevel25p = 10;
-var minlevel26 = 10;
-var minlevel26p = 10;
+var minlevel26 = 3;
+var minlevel26p = 8;
