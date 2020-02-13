@@ -180,7 +180,7 @@ function drawn(object){
 }
 var setVisible = ggbApplet.setVisible;
 
-function LevelCompleted(condition,mincount){
+function LevelCompleted(condition,mincount){  // The parameter mincount is obsolete and unused. 
  if(condition){
  	Command('progress = 100');
 	Command('Complete = Text["Level completed!",  '+abspos("0.15","-0.13")+']');   

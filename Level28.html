@@ -1,0 +1,50 @@
+---
+layout: default
+title: Level 28
+cat: level
+lang: en
+number: 28
+
+---
+<p id="goal">
+	<b>Goal:</b> Construct a triangle given two angles (B and C) and the non-included side (AB).  
+</p>
+
+
+<p id="winningimg">
+<img src="/img/Level{{page.number}}.png"/ >
+</p>
+<div id="hidden" style="display: none">
+<p id="level">
+<b>Excellent!</b> You have completed all the levels!!  
+
+<!-- Then go to <a href="/Level29/">level 29</a>! -->
+</p>
+</div>
+
+<script type="text/javascript">
+	{% include parameters480p.js %}
+    parameters.customToolBar = "0 | 1 501 | 5 19 | 15 2 18 | 10 53 | 100001 | 8 9 4 3 | 40 41 42";
+	parameters.ggbBase64 = "{% base64 ggb/Level28.ggb %}" ;
+	parameters.language = "en"
+</script>
+
+<div id="applet_container">
+</div>
+
+<script type="text/javascript">
+{% include testobjects.js %}
+
+checkobject("C",0.3,-0.3);
+checkdirection("target1",0.3,-0.3);
+checkdirection("target2",0.3,-0.3);
+
+
+if (drawn("target1") || drawn("target2")||drawn("C")){
+	Command('progress = 50');
+}
+
+LevelCompleted(drawn("C") && drawn("target2"),5);
+
+}
+</script>

@@ -53,12 +53,12 @@
 
 <script>
 var totalscore =0;
- for (var i = 0; i < 26; i++) {
+ for (var i = 0; i < 30; i++) {
  if ((parseInt(localStorage["Level"+i+"p"]) <= window["minlevel"+i+"p"] )&& !parseInt(localStorage["Level"+i+"p"])==0){
 	totalscore = 1 + totalscore;
   } 
 }
- for (var i = 0; i < 26; i++) {
+ for (var i = 0; i < 30; i++) {
  //console.log(window["minlevel"+i],parseInt(localStorage["Level"+i]),i);
  if ((parseInt(localStorage["Level"+i]) <= window["minlevel"+i]) && !parseInt(localStorage["Level"+i])==0){
 	totalscore = 1 + totalscore;
@@ -77,7 +77,7 @@ var totalscore =0;
         var theName = nameElement.value;
 		if (totalscore > 30){
 		var totallevels ="" ;
-		 for (var i = 0; i < 26; i++) {
+		 for (var i = 0; i < 30; i++) {
  if (localStorage["Level"+i] > 0 ){
 	totallevels = totallevels + "Level"+i+":"+localStorage["Level"+i] +" "; 
 	console.log(totallevels);

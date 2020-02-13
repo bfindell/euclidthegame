@@ -1,0 +1,48 @@
+---
+layout: default
+title: Level 27
+cat: level
+lang: en
+number: 27
+
+---
+<p id="goal">
+	<b>Goal:</b> Construct a triangle given two angles (A and B) and the included side (AB).  
+</p>
+
+
+<p id="winningimg">
+<img src="/img/Level{{page.number}}.png"/ >
+</p>
+<div id="hidden" style="display: none">
+<p id="level">
+<b>Good work!</b> Now adjust the givens (by moving the blue points) to observe that sometimes there is no triangle.<br><br>
+Then go to <a href="/Level28/">level 28</a>!
+</p>
+</div>
+
+<script type="text/javascript">
+	{% include parameters480p.js %}
+    parameters.customToolBar = "0 | 1 501 | 5 19 | 15 2 18 | 10 53 | 100001 | 8 9 4 3 | 40 41 42";
+	parameters.ggbBase64 = "{% base64 ggb/Level27.ggb %}" ;
+	parameters.language = "en"
+</script>
+
+<div id="applet_container">
+</div>
+
+<script type="text/javascript">
+{% include testobjects.js %}
+
+checkobject("C",0.3,-0.3);
+checkdirection("target1",0.3,-0.3);
+
+
+if (drawn("target1") ||drawn("C")){
+	Command('progress = 50');
+}
+
+LevelCompleted(drawn("C") && drawn("target1"),5);
+
+}
+</script>
