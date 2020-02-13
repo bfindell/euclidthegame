@@ -1,4 +1,5 @@
 var medal = 0;
+var maxlevel=28;  // Number of the highest level.
 var minlevel0p = 4;
 var minlevel1p = 4;
 var minlevel2 = 3;
@@ -55,11 +56,3 @@ var minlevel27 = 4;
 var minlevel27p = 0;
 var minlevel28 = 5;
 var minlevel28p = 0;
-var minlevel29 = 0;
-var minlevel29p = 0;
-var minlevel30 = 0;
-var minlevel30p = 0;
-var minlevel31 = 0;
-var minlevel31p = 0;
-var minlevel32 = 0;
-var minlevel32p = 0;
