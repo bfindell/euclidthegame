@@ -7,3 +7,4 @@
         applet.inject('applet_container', 'html5');
     }
 	parameters.language = "{{ page.lang }}"
+	parameters.customToolBar = "0 | 1 501 | 5 19 | 15 2 18 | 10 53 | 100001 | 8 9 4 3 | 40 41 42";  // Standard toolbar for game.

@@ -25,14 +25,13 @@ $(document).ready(function(){
 <div id="hidden" style="display: none">
 <p id="level" onclick="location.href='/Level2/';" style="cursor:pointer;">
 You unlocked a new tool: Constructing equilateral triangles! <br><br>
-Use the arrow tool to move the free points A and B and observe that the triangle remains equilateral.  Then go to <a href="/Level2/">level 2</a>!
+Use the arrow tool to move free points A and B and observe that the triangle remains equilateral.  Then go to <a href="/Level2/">Level 2</a>!
 </p>
 </div>
 <script type="text/javascript">
 	{% include parameters480p.js %}
-    parameters.customToolBar = "0 | 501 | 5 | 15 | 18 | 10"; //| 100001 | 100002 | 9 | 4 | 3 | 100003 | 53";
+    parameters.customToolBar = "0 | 501 | 5 | 15 | 18 | 10"; //| 100001 | 9 | 4 | 3 | 53";
 	parameters.ggbBase64 = "{% base64 ggb/Level1.ggb %}" ;
-	parameters.language = "en"
 	
 </script>
 
