@@ -18,7 +18,7 @@ return encircled;
         {% unless page_cat["name"] == 'notSorted' %}
             <ul>
             {% assign sorted_pages = page_cat["items"] | sort:"number" %}
- 			<script> 
+ 			<script> // Give links and medals for all completed levels
 			for (var i = 0; i <= maxlevel; i++) {
 				var moves = parseInt(localStorage["Level"+i]);
 				var minmoves = window["minlevel"+i];
@@ -37,7 +37,7 @@ return encircled;
 				}
 			}
 			</script>
-			<script>
+			<script> // When at a completed level, give link to next level, if not completed.  
 			var number = {{page.number}}
 			var next = number + 1;
 			var nextlevel = "Level"+next;			
@@ -50,22 +50,19 @@ return encircled;
         {% endunless %}
         {% endfor %}
 
-<script>
+<script> // Count Gold Medals 
 var totalscore =0;
  for (var i = 0; i <= maxlevel; i++) {
- if ((parseInt(localStorage["Level"+i+"p"]) <= window["minlevel"+i+"p"] )&& 
- 	!parseInt(localStorage["Level"+i+"p"])==0){
-	totalscore = 1 + totalscore;
-  } 
-}
- for (var i = 0; i <= maxlevel; i++) {
-// console.log(window["minlevel"+i],parseInt(localStorage["Level"+i]),i);
- if ((parseInt(localStorage["Level"+i]) <= window["minlevel"+i]) && 
- 	!parseInt(localStorage["Level"+i])==0){
-	totalscore = 1 + totalscore;
-  } 
+ if ((parseInt(localStorage["Level"+i+"p"]) <= window["minlevel"+i+"p"] )&& !parseInt(localStorage["Level"+i+"p"])==0){
+	totalscore += 1;
+  	} 
+ console.log(i, window["minlevel"+i],parseInt(localStorage["Level"+i]),window["minlevel"+i+"p"],parseInt(localStorage["Level"+i+"p"]));
+ if ((parseInt(localStorage["Level"+i]) <= window["minlevel"+i]) && !parseInt(localStorage["Level"+i])==0){
+	totalscore += 1;
+	}
 }
 </script>
+
 <b>Gold Medals: <script>document.write(totalscore);</script> </b> 
 <br><br>
 <a href="/Medal/">Info about medals<br> and controls</a>
