@@ -1,62 +1,65 @@
 <b>Navigation:</b>
 <script>
-					function encircle(number,min){
-					var encircled = parseInt(number);
-					if (encircled > 20){
-						encircled = 9331;
-					}
-					else{encircled = encircled + 9311;}
-					if (parseInt(number) <= min){
-						encircled = "<span id=\"medalgold\">&#"+encircled+"</span>";
-					}
-					else{encircled = "<span id=\"medal\">&#"+encircled+"</span>";}
-					return encircled;
-					}
-
+function encircle(number,min){
+var encircled = parseInt(number);
+if (encircled > 20){
+	encircled = 9331;
+}
+else{encircled = encircled + 9311;}
+if (parseInt(number) <= min){
+	encircled = "<span id=\"medalgold\">&#"+encircled+"</span>";
+}
+else{encircled = "<span id=\"medal\">&#"+encircled+"</span>";}
+return encircled;
+}
 </script>
     {% assign allPages = site.pages | group_by:"cat" %}
         {% for page_cat in allPages %}
         {% unless page_cat["name"] == 'notSorted' %}
             <ul>
             {% assign sorted_pages = page_cat["items"] | sort:"number" %}
-            {% for p in sorted_pages %}
-					<script> 
-					if (localStorage.Level{{p.number}} > 0 ||localStorage.Level{{p.number}}p > 0 ){
-					var levelurl = "<li ><a href=\"{{ p.url }}\">{{p.title}}</a> ";
-					if (localStorage.Level{{p.number}} > 0)
-					{ levelurl +=  encircle(localStorage.Level{{p.number}},minlevel{{p.number}})+"";}
-					if (localStorage.Level{{p.number}}p > 0)
-					{ levelurl +=  encircle(localStorage.Level{{p.number}}p,minlevel{{p.number}}p)+" ";}
-					levelurl +="</li>";
-					document.write(levelurl);
-					}			
-					</script>
-            {% endfor %}
+ 			<script> 
+			for (var i = 0; i <= maxlevel; i++) {
+				var moves = parseInt(localStorage["Level"+i]);
+				var minmoves = window["minlevel"+i];
+				var movesp = parseInt(localStorage["Level"+i+"p"]);
+				var minmovesp = window["minlevel"+i+"p"];
+				if (moves > 0 || movesp > 0 ){
+				var levelurl = "<li ><a href=\"/Level"+i+"\">Level "+i+"</a> ";
+				if (moves > 0){ 
+					levelurl +=  encircle(moves,minmoves)+"";}
+				if (movesp > 0){ 
+					levelurl +=  encircle(movesp,minmovesp)+" ";}
+				levelurl +="</li>";
+				document.write(levelurl);
+				}
+			}
+			</script>
 			<script>
 			var number = {{page.number}}
 			var next = number + 1;
 			var nextlevel = "Level"+next;			
 			console.log(localStorage.nextlevel);
 					if (localStorage.Level{{page.number}} > 0 && (localStorage[nextlevel] > 0) === false){
-					if ({{page.number}} <maxlevel){
+					if ({{page.number}} <= maxlevel){
 					document.write("<li><a href=\"/"+nextlevel+"\">Level "+next+"</a></li>");}}	
 			</script>
         </ul>
         {% endunless %}
         {% endfor %}
 
-
-
 <script>
 var totalscore =0;
- for (var i = 0; i < maxlevel; i++) {
- if ((parseInt(localStorage["Level"+i+"p"]) <= window["minlevel"+i+"p"] )&& !parseInt(localStorage["Level"+i+"p"])==0){
+ for (var i = 0; i <= maxlevel; i++) {
+ if ((parseInt(localStorage["Level"+i+"p"]) <= window["minlevel"+i+"p"] )&& 
+ 	!parseInt(localStorage["Level"+i+"p"])==0){
 	totalscore = 1 + totalscore;
   } 
 }
- for (var i = 0; i < maxlevel; i++) {
- //console.log(window["minlevel"+i],parseInt(localStorage["Level"+i]),i);
- if ((parseInt(localStorage["Level"+i]) <= window["minlevel"+i]) && !parseInt(localStorage["Level"+i])==0){
+ for (var i = 0; i <= maxlevel; i++) {
+// console.log(window["minlevel"+i],parseInt(localStorage["Level"+i]),i);
+ if ((parseInt(localStorage["Level"+i]) <= window["minlevel"+i]) && 
+ 	!parseInt(localStorage["Level"+i])==0){
 	totalscore = 1 + totalscore;
   } 
 }
