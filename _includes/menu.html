@@ -1,5 +1,17 @@
 <b>Navigation:</b>
 <script>
+					function encircle(number,min){
+					var encircled = parseInt(number);
+					if (encircled > 20){
+						encircled = 9331;
+					}
+					else{encircled = encircled + 9311;}
+					if (parseInt(number) <= min){
+						encircled = "<span id=\"medalgold\">&#"+encircled+"</span>";
+					}
+					else{encircled = "<span id=\"medal\">&#"+encircled+"</span>";}
+					return encircled;
+					}
 
 </script>
     {% assign allPages = site.pages | group_by:"cat" %}
@@ -9,13 +21,12 @@
             {% assign sorted_pages = page_cat["items"] | sort:"number" %}
             {% for p in sorted_pages %}
 					<script> 
-					{% include encircle.js %}					
 					if (localStorage.Level{{p.number}} > 0 ||localStorage.Level{{p.number}}p > 0 ){
 					var levelurl = "<li ><a href=\"{{ p.url }}\">{{p.title}}</a> ";
 					if (localStorage.Level{{p.number}} > 0)
-					{ levelurl +=  encircle(localStorage.Level{{p.number}})+"";}
+					{ levelurl +=  encircle(localStorage.Level{{p.number}},minlevel{{p.number}})+"";}
 					if (localStorage.Level{{p.number}}p > 0)
-					{ levelurl +=  encircle2(localStorage.Level{{p.number}}p)+" ";}
+					{ levelurl +=  encircle(localStorage.Level{{p.number}}p,minlevel{{p.number}}p)+" ";}
 					levelurl +="</li>";
 					document.write(levelurl);
 					}			
