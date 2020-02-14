@@ -3,7 +3,7 @@
 function encircle(number,min){
 var encircled = parseInt(number);
 if (encircled > 20){
-	encircled = 9331;
+	encircled = 9331;  // characters 9312 through 9331 look like medals
 }
 else{encircled = encircled + 9311;}
 if (parseInt(number) <= min){
@@ -26,7 +26,9 @@ return encircled;
 				var minmovesp = window["minlevel"+i+"p"];
 				if (moves > 0 || movesp > 0 ){
 				var levelurl = "<li ><a href=\"/Level"+i+"\">Level "+i+"</a> ";
-				if (moves > 0){ 
+				if (i==0){
+						levelurl = "<li ><a href=\"/Tutorial\">Tutorial</a> ";}
+				if (moves > 0){
 					levelurl +=  encircle(moves,minmoves)+"";}
 				if (movesp > 0){ 
 					levelurl +=  encircle(movesp,minmovesp)+" ";}
@@ -41,7 +43,7 @@ return encircled;
 			var nextlevel = "Level"+next;			
 			console.log(localStorage.nextlevel);
 					if (localStorage.Level{{page.number}} > 0 && (localStorage[nextlevel] > 0) === false){
-					if ({{page.number}} <= maxlevel){
+					if ({{page.number}} < maxlevel){
 					document.write("<li><a href=\"/"+nextlevel+"\">Level "+next+"</a></li>");}}	
 			</script>
         </ul>
