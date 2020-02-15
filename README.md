@@ -3,14 +3,14 @@ Euclid The Game
 
 The goal of this project is to gamify geometric challanges. We use the [geogebra](http://www.geogebra.org) software for this. This game is MIT licensed, see the LICENSE file.
 
-### Message February 2020
+### Message February 2020  (from Brad Findell)
 Kasper Peulen's brilliant game has been borrowed and rehosted at https://euclid.findell.org.  We have squashed bugs, improved the GeoGebra functionality of the apps, and made some minor edits.  New levels are in development!  
 
 Important notes: 
 * Peulen's source code requires Jekyll, a simple, blog-aware, static site generator.  
 * At one point, there were plans for an iOS game.  See https://www.facebook.com/euclidthegame
 
-### Message July 2014
+### Message July 2014 (from Kasper Peulen)
 A year ago I posted the idea for this game at stackexchange:
 http://math.stackexchange.com/questions/373672/about-euclids-elements-and-modern-video-games
 

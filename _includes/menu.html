@@ -1,18 +1,32 @@
-<b>Navigation:</b>
 <script>
-function encircle(number,min){
-var encircled = parseInt(number);
-if (encircled > 20){
-	encircled = 9331;  // characters 9312 through 9331 look like medals
+// The following function displays gold or silver medals with the number of moves
+function encircle(moves,min){
+	var encircled = parseInt(moves);
+	if (encircled > 20){
+		encircled = 9331;  // characters 9312 through 9331 look like medals
+	}
+	else{encircled = encircled + 9311;}
+	if (parseInt(moves) <= min){
+		encircled = "<span id=\"medalgold\">&#"+encircled+"</span>";
+	}
+	else{encircled = "<span id=\"medal\">&#"+encircled+"</span>";}
+	return encircled;
 }
-else{encircled = encircled + 9311;}
-if (parseInt(number) <= min){
-	encircled = "<span id=\"medalgold\">&#"+encircled+"</span>";
-}
-else{encircled = "<span id=\"medal\">&#"+encircled+"</span>";}
-return encircled;
+
+// Count Gold Medals.  Score displayed after navigation links.  
+var totalscore =0;
+for (var i = 0; i <= maxlevel; i++) {
+ 	// console.log(i, window["minlevel"+i],parseInt(localStorage["Level"+i]),window["minlevel"+i+"p"],parseInt(localStorage["Level"+i+"p"]));
+ 	if ((parseInt(localStorage["Level"+i+"p"]) <= window["minlevel"+i+"p"] ) && !parseInt(localStorage["Level"+i+"p"])==0){
+		totalscore += 1;
+  	} 
+ 	if ((parseInt(localStorage["Level"+i]) <= window["minlevel"+i]) && !parseInt(localStorage["Level"+i])==0){
+		totalscore += 1;
+	}
 }
 </script>
+
+<b>Navigation:</b>
     {% assign allPages = site.pages | group_by:"cat" %}
         {% for page_cat in allPages %}
         {% unless page_cat["name"] == 'notSorted' %}
@@ -36,8 +50,7 @@ return encircled;
 				document.write(levelurl);
 				}
 			}
-			</script>
-			<script> // When at a completed level, give link to next level, if not completed.  
+			// When at a completed level, give link to next level, if not completed.  
 			var number = {{page.number}}
 			var next = number + 1;
 			var nextlevel = "Level"+next;			
@@ -50,21 +63,11 @@ return encircled;
         {% endunless %}
         {% endfor %}
 
-<script> // Count Gold Medals 
-var totalscore =0;
- for (var i = 0; i <= maxlevel; i++) {
- if ((parseInt(localStorage["Level"+i+"p"]) <= window["minlevel"+i+"p"] )&& !parseInt(localStorage["Level"+i+"p"])==0){
-	totalscore += 1;
-  	} 
- console.log(i, window["minlevel"+i],parseInt(localStorage["Level"+i]),window["minlevel"+i+"p"],parseInt(localStorage["Level"+i+"p"]));
- if ((parseInt(localStorage["Level"+i]) <= window["minlevel"+i]) && !parseInt(localStorage["Level"+i])==0){
-	totalscore += 1;
-	}
-}
-</script>
-
 <b>Gold Medals: <script>document.write(totalscore);</script> </b> 
 <br><br>
 <a href="/Medal/">Info about medals<br> and controls</a>
+<br><br>
+
+
 
   
