@@ -1,7 +1,7 @@
 # Site settings
 title: "Euclid: The Game"
 email: "bfindell@gmail.com"
-description: "This website tries to gamify The Elements a book written by Euclid."
+description: "This website tries to gamify The Elements, a book written by Euclid."
 baseurl: ""
 url: "https://euclid.findell.org"
 
