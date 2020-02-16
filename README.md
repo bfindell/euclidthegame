@@ -1,10 +1,10 @@
 Euclid The Game
 ===============
 
-The goal of this project is to gamify geometric challanges. We use the [geogebra](http://www.geogebra.org) software for this. This game is MIT licensed, see the LICENSE file.
+The goal of this project is to gamify geometric challanges. We use the [GeoGebra](http://www.geogebra.org) software for this. This game is MIT licensed; see the LICENSE file.
 
 ### Message February 2020  (from Brad Findell)
-Kasper Peulen's brilliant game has been borrowed and rehosted at https://euclid.findell.org.  We have squashed bugs, improved the GeoGebra functionality of the apps, and made some minor edits.  New levels are in development!  
+Kasper Peulen's brilliant game has been borrowed and rehosted at https://euclid.findell.org.  We have squashed bugs, improved the GeoGebra functionality of the apps, and made some edits.  New levels are in development!  
 
 Important notes: 
 * Peulen's source code requires Jekyll, a simple, blog-aware, static site generator.  
@@ -14,9 +14,9 @@ Important notes:
 A year ago I posted the idea for this game at stackexchange:
 http://math.stackexchange.com/questions/373672/about-euclids-elements-and-modern-video-games
 
-I hoped that I could inspire game developers to make such a game. Well, I failed ! But I did inspire myself to learn a little bit about html/javascript and geogebra, and in this way, I was able to make this game.
+I hoped that I could inspire game developers to make such a game. Well, I failed! But I did inspire myself to learn a little bit about html/javascript and geogebra, and in this way, I was able to make this game.
 
-If you have worked with geogebra, it may be not so hard to contribute to new levels. I've written a couple of function that make it easy to test if objects/lines/circles are drawn:
+If you have worked with geogebra, it may be not so hard to contribute to new levels. I've written a couple of functions that make it easy to test if objects/lines/circles are drawn:
 
 ```javascript
 function ggbOnInit() {
