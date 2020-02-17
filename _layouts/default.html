@@ -6,17 +6,14 @@
   </div>
   <div id="page">
       
+  <body>
 
-        <body>
+    {% include header.html %}
 
-        {% include analytics.html %}
-        {% include header.html %}
+        {{ content }}
 
-          {{ content }}
+    {% include footer.html %}
 
-
-        {% include footer.html %}
-
-    </body>
-    </div>
+  </body>
+  </div>
 </html>
