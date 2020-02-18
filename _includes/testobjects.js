@@ -108,7 +108,7 @@ if (cmdString.substring(0,13) == "AngleBisector"){
 		}
 	}
 
-	// this functions can check all general objects
+	// this function can check all general objects
 	function checkobject(target,x,y) {
 		Command("finished = (" + obj + "== " + target + ")");
 		finished = ggbApplet.getValueString("finished");
@@ -119,7 +119,7 @@ if (cmdString.substring(0,13) == "AngleBisector"){
 		} 
 	}
 
-	// this functions check line segments
+	// this function check line segments
 	function checksegment(target,x,y) {
 		if (ggbApplet.getObjectType(obj) == "segment") {
 			var beginpointobject = "Point["+obj+",0]"
@@ -141,7 +141,7 @@ if (cmdString.substring(0,13) == "AngleBisector"){
 		}
 	}
 
-	// this functions can check if line segment has right direction
+	// this function can check if line segment has right direction
  
 	function checkdirection(target,x,y) {
 		if (ggbApplet.getObjectType(obj) == "segment" || ggbApplet.getObjectType(obj) == "ray" || ggbApplet.getObjectType(obj) == "line") { 
@@ -157,7 +157,7 @@ if (cmdString.substring(0,13) == "AngleBisector"){
 		}
 	}
 
-	// this functions check if the new point is on the targetline
+	// this function check if the new point is on the targetline
 	function checkpointontarget(target,x,y) {
 		if (ggbApplet.getObjectType(obj) == "point") {
 			Command("finished = ("+target+"(x("+obj+"))==y("+obj+"))");
