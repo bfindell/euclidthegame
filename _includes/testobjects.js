@@ -7,14 +7,10 @@ function ggbOnInit() {
 	element.setAttribute("isselected", "false"); 
 	ggbApplet.debug("ggbOnInit");
 	ggbApplet.registerAddListener("newObjectListener");
-	function Command(cmd){ggbApplet.debug(cmd); ggbApplet.evalCommand(cmd);}
-	function abspos(x,y){
-	return "Corner[4] + ("+x+"*(x(Corner[3])-x(Corner[4])),"+y+"*(x(Corner[2])-x(Corner[1])))"
-	}
 	Command('progress = 0');
-	Command('Progresstext = Text["Progress: "progress"%",'+abspos("0.011","-0.032915")+']');
+	Command('Progresstext = Text["Progress: "progress"%",'+abspos("0.02","-0.05")+']');
 	Command('countnumber = 0');
-	Command ('count0 = Text["Moves: "countnumber"",'+abspos("0.85","-0.032915")+']');
+	Command ('count0 = Text["Moves: "countnumber"",'+abspos("0.85","-0.05")+']');
 	Command('W = (-10,-10)'); 
 	ggbApplet.setVisible("W",false);
 	Command('welldone = Text["Well done!", W]'); 		
@@ -24,10 +20,10 @@ function ggbOnInit() {
 function Command(cmd){ggbApplet.debug(cmd); ggbApplet.evalCommand(cmd);}
 
 function abspos(x,y){
-	return "Corner[4] + ("+x+"*(x(Corner[3])-x(Corner[4])),"+y+"*(x(Corner[2])-x(Corner[1])))"
+	return "Corner[4] + ("+x+"*(x(Corner[3])-x(Corner[4])),"+y+"*(y(Corner[3])-y(Corner[2])))"
 	}
 
-var count = 'Text["Count = 0",'+abspos("0.85","-0.032915")+']'
+var count = 'Text["Count = 0",'+abspos("0.85","-0.05")+']'
 
 function newObjectListener(obj) {
 	if (ggbApplet.getObjectType(obj) === "boolean" || ggbApplet.getObjectType(obj) === "text" || ggbApplet.getObjectType(obj) === "numeric"|| obj == "W")
@@ -38,12 +34,6 @@ function newObjectListener(obj) {
 		{ggbApplet.setColor(obj,255,204,102);
 		}
 
-	function Command(cmd){ggbApplet.debug(cmd); ggbApplet.evalCommand(cmd);}
-
-	function abspos(x,y){
-		return "Corner[4] + ("+x+"*(x(Corner[3])-x(Corner[4])),"+y+"*(x(Corner[2])-x(Corner[1])))"
-		}
- 
 	var cmdString = ggbApplet.getCommandString(obj);
 	console.log(cmdString);
 	console.log(ggbApplet.getObjectType(obj));
@@ -93,7 +83,7 @@ if (cmdString.substring(0,13) == "AngleBisector"){
 
 		if ( round((n-b)*(x-m)) === round((y-n)*(m-a))){
 			Command('Delete['+obj+']');
-			Command('Text["You cannot use the bisecting tool if the angle is 180 degrees!",'+abspos("0.02","-0.532915")+']');
+			Command('Text["You cannot use the bisecting tool if the angle is 180 degrees!",'+abspos("0.02","-0.80")+']');
 		}
 	}
 }
@@ -191,17 +181,17 @@ var setVisible = ggbApplet.setVisible;
 function LevelCompleted(condition,mincount){  // The parameter mincount is obsolete and unused. 
 	if(condition){
 		Command('progress = 100');
-		Command('Complete = Text["Level completed!",  '+abspos("0.15","-0.13")+']');   
+		Command('Complete = Text["Level completed!",  '+abspos("0.15","-0.20")+']');   
 		//document.getElementById("level").style.display="inline-block";	
 		$( "#hidden" ).slideDown(1000);	
 		$( "#hiddencomments" ).toggle();	// Used for disqus comments.
 		var count = ggbApplet.getValue("countnumber");
 		if (primitives && (count === minlevel{{page.number}}p)){
-			Command('score2 = Text["Perfect! You have done this challenge in a minimum number of primitive moves!", '+abspos("0.35","-0.602915")+']');
+			Command('score2 = Text["Perfect! You have done this challenge in a minimum number of primitive moves!", '+abspos("0.35","-0.80")+']');
 		}
 		if (!primitives) {
 			if(count === minlevel{{page.number}}){
-				Command('score2 = Text["Perfect! You have done this challenge in a minimum number of moves!", '+abspos("0.35","-0.602915")+']');
+				Command('score2 = Text["Perfect! You have done this challenge in a minimum number of moves!", '+abspos("0.35","-0.80")+']');
 			}
 		}
 
