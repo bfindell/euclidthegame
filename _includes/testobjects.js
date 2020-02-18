@@ -192,6 +192,9 @@ function LevelCompleted(condition,mincount){  // The parameter mincount is obsol
 	if(condition){
 		Command('progress = 100');
 		Command('Complete = Text["Level completed!",  '+abspos("0.15","-0.13")+']');   
+		//document.getElementById("level").style.display="inline-block";	
+		$( "#hidden" ).slideDown(1000);	
+		$( "#hiddencomments" ).toggle();	// Used for disqus comments.
 		var count = ggbApplet.getValue("countnumber");
 		if (primitives && (count === minlevel{{page.number}}p)){
 			Command('score2 = Text["Perfect! You have done this challenge in a minimum number of primitive moves!", '+abspos("0.35","-0.602915")+']');
@@ -201,9 +204,6 @@ function LevelCompleted(condition,mincount){  // The parameter mincount is obsol
 				Command('score2 = Text["Perfect! You have done this challenge in a minimum number of moves!", '+abspos("0.35","-0.602915")+']');
 			}
 		}
-	//document.getElementById("level").style.display="inline-block";	
-	$( "#hidden" ).slideDown(1000);	
-	$( "#hiddencomments" ).toggle();	
 
 	if (primitives){
 		if (!(localStorage.Level{{page.number}}p < count)) {
