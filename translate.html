@@ -1,0 +1,40 @@
+---
+layout: default
+title: Translation
+lang: en
+---
+<p id="goal"><b>Goal:</b> Construct the translation of point P by vector AB. 
+</p>
+
+<p id="winningimg">
+<img src="/img/translate.png"/ >
+</p>
+<div id="hidden" style="display: none">
+<p id="level">
+<b>Excellent!</b>  Now turn on traces, drag point P, and observe how the construction generalizes to the whole plane.<br><br>
+Then go to <a href="/reflect/">Reflection</a>!
+</p>
+</div>
+<script type="text/javascript">
+	{% include parameters480p.js %}
+ 	parameters.ggbBase64 = "{% base64 ggb/translate.ggb %}" ;	
+//	parameters.customToolBar = "0 | 1 501 | 5 19 | 15 2 18 | 10 53 | 100001 | 8 9 4 3 | 40 41 42 | 27 28 6";  // Added show, hide, delete
+</script>
+
+<div id="applet_container">
+</div>
+
+<script type="text/javascript">
+{% include testobjects.js %}
+
+checkdirection("target1",0,-0.5);
+checkdirection("target2",0,-0.5);
+if (drawn("target1") || drawn("target2")) {
+	Command('progress = 50');
+}
+
+checkobject("Pprime",0,-0.5);
+
+LevelCompleted(drawn("Pprime"),4);
+}
+</script>

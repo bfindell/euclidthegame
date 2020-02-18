@@ -1,0 +1,46 @@
+---
+layout: default
+title: Reflection
+lang: en
+---
+<p id="goal"><b>Goal:</b> Construct the reflection of point P across line AB. 
+</p>
+
+<p id="winningimg">
+<img src="/img/reflect.png"/ >
+</p>
+<div id="hidden" style="display: none">
+<p id="level">
+<b>Excellent!</b>  Now turn on traces, drag point P, and observe how the construction generalizes to the whole plane.<br><br>
+Then go to <a href="/rotate/">Rotation</a>! 
+</p>
+</div>
+<script type="text/javascript">
+	{% include parameters480p.js %}
+ 	parameters.ggbBase64 = "{% base64 ggb/reflect.ggb %}" ;	
+//	parameters.customToolBar = "0 | 1 501 | 5 19 | 15 2 18 | 10 53 | 100001 | 8 9 4 3 | 40 41 42 | 27 28 6";  // Added show, hide, delete
+</script>
+
+<div id="applet_container">
+</div>
+
+<script type="text/javascript">
+{% include testobjects.js %}
+
+checkobject("target1");
+
+checkdirection("target1",0,-0.5);
+if (drawn("target1")) {
+	Command('progress = 40');
+}
+
+checkobject("circle1",0,-0.5);
+if (drawn("circle1"),80){
+	Command('progress = 80')
+}
+
+checkobject("Pprime",0,-0.5);
+
+LevelCompleted(drawn("Pprime"),4);
+}
+</script>
