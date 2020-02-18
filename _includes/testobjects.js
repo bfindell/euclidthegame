@@ -26,31 +26,28 @@ function abspos(x,y){
 var count = 'Text["Count = 0",'+abspos("0.85","-0.05")+']'
 
 function newObjectListener(obj) {
-	if (ggbApplet.getObjectType(obj) === "boolean" || ggbApplet.getObjectType(obj) === "text" || ggbApplet.getObjectType(obj) === "numeric"|| obj == "W")
+	var objType = ggbApplet.getObjectType(obj);
+	if (objType === "boolean" || objType === "text" || objType === "numeric"|| obj == "W")
 		{return;
 		}
 
-	if (ggbApplet.getObjectType(obj) == "segment" || ggbApplet.getObjectType(obj) == "circle" || ggbApplet.getObjectType(obj) == "ray" || ggbApplet.getObjectType(obj) == "line") 
+	if (objType == "segment" || objType == "circle" || objType == "ray" || objType == "line") 
 		{ggbApplet.setColor(obj,255,204,102);
 		}
-
 	var cmdString = ggbApplet.getCommandString(obj);
-	console.log(cmdString);
-	console.log(ggbApplet.getObjectType(obj));
-	console.log(obj);
+	console.log(objType,":", obj, "=", cmdString);
 
-	if (ggbApplet.getObjectType(obj) == "point" && cmdString == ""){
-		console.log(ggbApplet.getXcoord(obj));
+	if (objType == "point" && cmdString == ""){
 		var x = ggbApplet.getXcoord(obj) + 0.01;
-		console.log(x);
 		var y = ggbApplet.getYcoord(obj) - 0.01;
+		console.log(x,y);
 		Command( obj +"= ("+x+","+y+")");
 	}
 
-	if (cmdString.substring(0,3) == "Ray" || (cmdString.substring(0,2) == "Eq" && ggbApplet.getObjectType(obj)=="point") || 
+	if (cmdString.substring(0,3) == "Ray" || (cmdString.substring(0,2) == "Eq" && objType=="point") || 
 		cmdString.substring(0,3) == "Seg" ||cmdString.substring(0,3) == "Cir" || cmdString.substring(0,3) == "Mid" || 
 		cmdString.substring(0,13) == "AngleBisector" || cmdString.substring(0,4) == "Perp" || cmdString.substring(0,4) == "Line" || 
-		(cmdString.substring(0,5) == "Trans"&& ggbApplet.getObjectType(obj)=="point")){
+		(cmdString.substring(0,5) == "Trans"&& objType=="point")){
 			Command('countnumber = countnumber + 1');
 			if (!(cmdString.substring(0,3) == "Ray" || cmdString.substring(0,3) == "Seg" || cmdString.substring(0,3) == "Cir") && primitives) { 
 				primitives = false;}
@@ -88,22 +85,23 @@ if (cmdString.substring(0,13) == "AngleBisector"){
 	}
 }
 
-	function getCoord(obj){ 
-		if (ggbApplet.getObjectType(obj) === "point" ) {
-			var x = ggbApplet.getXcoord(obj);
-			var y = ggbApplet.getYcoord(obj);
+	function getCoord(objx){ 
+		if (ggbApplet.getObjectType(objx) === "point" ) {
+			var x = ggbApplet.getXcoord(objx);
+			var y = ggbApplet.getYcoord(objx);
 			return "("+x+","+y+")"
 		}
-		else if (ggbApplet.getObjectType(obj)==="segment" || ggbApplet.getObjectType(obj)==="ray" ){
-			Command("xx = x(Point["+obj+",0.5])");
-			Command("yy = y(Point["+obj+",0.5])");
+		else if (ggbApplet.getObjectType(objx)==="segment" || ggbApplet.getObjectType(objx)==="ray" ){
+			Command("xx = x(Point["+objx+",0.5])");
+			Command("yy = y(Point["+objx+",0.5])");
 			var x = ggbApplet.getValue("xx");
 			var y = ggbApplet.getValue("yy");
 			return "("+x+","+y+")";
 		}
-		else if (ggbApplet.getObjectType(obj)==="circle"){
-			var x = ggbApplet.getXcoord(cmdString.substring(7,8));
-			var y = ggbApplet.getYcoord(cmdString.substring(7,8));
+		else if (ggbApplet.getObjectType(objx)==="circle"){
+			var cmdStringx = ggbApplet.getCommandString(objx);
+			var x = ggbApplet.getXcoord(cmdStringx.substring(7,8));
+			var y = ggbApplet.getYcoord(cmdStringx.substring(7,8));
 			return "("+x+","+y+")";
 		}
 	}
