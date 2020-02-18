@@ -83,7 +83,6 @@ function newObjectListener(obj) {
 			}
 		}
 
-
 if (cmdString.substring(0,13) == "AngleBisector"){
 	var obj1 = cmdString.substring(14,15);
 	if (ggbApplet.getObjectType(obj1) === "point"){
@@ -102,12 +101,17 @@ if (cmdString.substring(0,13) == "AngleBisector"){
 
 		if ( round((n-b)*(x-m)) === round((y-n)*(m-a))){
 			Command('Delete['+obj+']');
-			Command('Text["Euclid\'s angle bisection tool fails when the angle is 180 degrees!",'+abspos("0.02","-0.80")+']');		
+			Command('Text["Some angle bisection methods fail when the angle is 180 degrees!  Try again.",'+abspos("0.02","-0.80")+']');		
 		}
 	}
 }
+	// The following "check" functions test whether target has been drawn.  
+	// When it has, finished = true in the app, and the check function:  
+	//   (1) Sets the target's "finished" flag by defining the text variable f_target in the app;
+	//   (2) Sets the position of "Well done!" offset from target by (x,y); and
+	//   (3) Diplays "Well done!"
 
-	// this function can check all general objects
+	// This function can check all general objects. 
 	function checkobject(target,x,y) {
 		Command("finished = (" + obj + "== " + target + ")");
 		finished = ggbApplet.getValueString("finished");
@@ -118,7 +122,7 @@ if (cmdString.substring(0,13) == "AngleBisector"){
 		} 
 	}
 
-	// this function check line segments
+	// This function check line segments.
 	function checksegment(target,x,y) {
 		if (ggbApplet.getObjectType(obj) == "segment") {
 			var beginpointobject = "Point["+obj+",0]"
@@ -140,7 +144,7 @@ if (cmdString.substring(0,13) == "AngleBisector"){
 		}
 	}
 
-	// this function can check if line segment has right direction
+	// This function can check if line segment has right direction.
  
 	function checkdirection(target,x,y) {
 		if (ggbApplet.getObjectType(obj) == "segment" || ggbApplet.getObjectType(obj) == "ray" || ggbApplet.getObjectType(obj) == "line") { 
@@ -156,7 +160,7 @@ if (cmdString.substring(0,13) == "AngleBisector"){
 		}
 	}
 
-	// this function check if the new point is on the targetline
+	// This function check if the new point is on the targetline.
 	function checkpointontarget(target,x,y) {
 		if (ggbApplet.getObjectType(obj) == "point") {
 			Command("finished = ("+target+"(x("+obj+"))==y("+obj+"))");
@@ -171,6 +175,8 @@ if (cmdString.substring(0,13) == "AngleBisector"){
 		}
 	}
 
+	// This function returns true if one of the above check functions has placed a "finished" flag in the app. 
+	// For the function to work correctly, a check function must first be called for the (target) object. 
 	function drawn(object){
 		return ggbApplet.getVisible('f_'+object) ;
 	}
