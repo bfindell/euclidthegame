@@ -1,4 +1,3 @@
-
 var primitives = true;
 
 function ggbOnInit() {
@@ -23,7 +22,26 @@ function abspos(x,y){
 	return "Corner[4] + ("+x+"*(x(Corner[3])-x(Corner[4])),"+y+"*(y(Corner[3])-y(Corner[2])))"
 	}
 
-var count = 'Text["Count = 0",'+abspos("0.85","-0.05")+']'
+function getCoord(objx){ 
+	if (ggbApplet.getObjectType(objx) === "point" ) {
+		var x = ggbApplet.getXcoord(objx);
+		var y = ggbApplet.getYcoord(objx);
+		return "("+x+","+y+")"
+	}
+	else if (ggbApplet.getObjectType(objx)==="segment" || ggbApplet.getObjectType(objx)==="ray" ){
+		Command("xx = x(Point["+objx+",0.5])");
+		Command("yy = y(Point["+objx+",0.5])");
+		var x = ggbApplet.getValue("xx");
+		var y = ggbApplet.getValue("yy");
+		return "("+x+","+y+")";
+	}
+	else if (ggbApplet.getObjectType(objx)==="circle"){
+		var cmdStringx = ggbApplet.getCommandString(objx);
+		var x = ggbApplet.getXcoord(cmdStringx.substring(7,8));
+		var y = ggbApplet.getYcoord(cmdStringx.substring(7,8));
+		return "("+x+","+y+")";
+	}
+}
 
 function newObjectListener(obj) {
 	var objType = ggbApplet.getObjectType(obj);
@@ -37,28 +55,32 @@ function newObjectListener(obj) {
 	var cmdString = ggbApplet.getCommandString(obj);
 	console.log(objType,":", obj, "=", cmdString);
 
-	if (objType == "point" && cmdString == ""){
+/*	if (objType == "point" && cmdString == ""){
 		var x = ggbApplet.getXcoord(obj) + 0.01;
 		var y = ggbApplet.getYcoord(obj) - 0.01;
 		console.log(x,y);
 		Command( obj +"= ("+x+","+y+")");
 	}
-
+*/
 	if (cmdString.substring(0,3) == "Ray" || (cmdString.substring(0,2) == "Eq" && objType=="point") || 
 		cmdString.substring(0,3) == "Seg" ||cmdString.substring(0,3) == "Cir" || cmdString.substring(0,3) == "Mid" || 
 		cmdString.substring(0,13) == "AngleBisector" || cmdString.substring(0,4) == "Perp" || cmdString.substring(0,4) == "Line" || 
 		(cmdString.substring(0,5) == "Trans"&& objType=="point")){
 			Command('countnumber = countnumber + 1');
-			if (!(cmdString.substring(0,3) == "Ray" || cmdString.substring(0,3) == "Seg" || cmdString.substring(0,3) == "Cir") && primitives) { 
-				primitives = false;}
+			if (!(cmdString.substring(0,3) == "Ray" || cmdString.substring(0,3) == "Seg" || cmdString.substring(0,4) == "Line" || cmdString.substring(0,3) == "Cir") && primitives) { 
+				primitives = false;
+				console.log("First non-primitive tool.");
+			}
 
 			function isLowerCase(myString) { 
 				return (myString == myString.toLowerCase()); 
 				}
 
 			var lastcomma = cmdString.indexOf(",");
-			if(cmdString.substring(0,3) == "Cir" && (isLowerCase(cmdString.substring(lastcomma+2,lastcomma+3)) || cmdString.substring(lastcomma+2,lastcomma+4) =="Se" || cmdString.substring(lastcomma+2,lastcomma+4) =="Ra"))
-				{primitives = false;}	
+			if(cmdString.substring(0,3) == "Cir" && (isLowerCase(cmdString.substring(lastcomma+2,lastcomma+3)) || cmdString.substring(lastcomma+2,lastcomma+4) =="Se" || cmdString.substring(lastcomma+2,lastcomma+4) =="Ra")) {
+				primitives = false;
+				console.log("Used compass tool.");
+			}
 		}
 
 
@@ -80,31 +102,10 @@ if (cmdString.substring(0,13) == "AngleBisector"){
 
 		if ( round((n-b)*(x-m)) === round((y-n)*(m-a))){
 			Command('Delete['+obj+']');
-			Command('Text["You cannot use the bisecting tool if the angle is 180 degrees!",'+abspos("0.02","-0.80")+']');
+			Command('Text["Euclid\'s angle bisection tool fails when the angle is 180 degrees!",'+abspos("0.02","-0.80")+']');		
 		}
 	}
 }
-
-	function getCoord(objx){ 
-		if (ggbApplet.getObjectType(objx) === "point" ) {
-			var x = ggbApplet.getXcoord(objx);
-			var y = ggbApplet.getYcoord(objx);
-			return "("+x+","+y+")"
-		}
-		else if (ggbApplet.getObjectType(objx)==="segment" || ggbApplet.getObjectType(objx)==="ray" ){
-			Command("xx = x(Point["+objx+",0.5])");
-			Command("yy = y(Point["+objx+",0.5])");
-			var x = ggbApplet.getValue("xx");
-			var y = ggbApplet.getValue("yy");
-			return "("+x+","+y+")";
-		}
-		else if (ggbApplet.getObjectType(objx)==="circle"){
-			var cmdStringx = ggbApplet.getCommandString(objx);
-			var x = ggbApplet.getXcoord(cmdStringx.substring(7,8));
-			var y = ggbApplet.getYcoord(cmdStringx.substring(7,8));
-			return "("+x+","+y+")";
-		}
-	}
 
 	// this function can check all general objects
 	function checkobject(target,x,y) {
@@ -174,15 +175,13 @@ if (cmdString.substring(0,13) == "AngleBisector"){
 		return ggbApplet.getVisible('f_'+object) ;
 	}
 
-var setVisible = ggbApplet.setVisible;
-
 function LevelCompleted(condition,mincount){  // The parameter mincount is obsolete and unused. 
 	if(condition){
 		Command('progress = 100');
 		Command('Complete = Text["Level completed!",  '+abspos("0.15","-0.20")+']');   
 		//document.getElementById("level").style.display="inline-block";	
 		$( "#hidden" ).slideDown(1000);	
-		$( "#hiddencomments" ).toggle();	// Used for disqus comments.
+		// $( "#hiddencomments" ).toggle();	 Used for disqus comments.
 		var count = ggbApplet.getValue("countnumber");
 		if (primitives && (count === minlevel{{page.number}}p)){
 			Command('score2 = Text["Perfect! You have done this challenge in a minimum number of primitive moves!", '+abspos("0.35","-0.90")+']');

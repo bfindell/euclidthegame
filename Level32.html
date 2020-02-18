@@ -19,7 +19,7 @@ Excellent.  You are done.
 <script type="text/javascript">
 	{% include parameters480p.js %}
  	parameters.ggbBase64 = "{% base64 ggb/Level32.ggb %}" ;	
-	parameters.customToolBar = "0 | 1 501 | 5 19 | 15 2 18 | 10 53 | 100001 | 8 9 4 3 | 40 41 42 | 27 28";  // Standard toolbar for game, with show/hide
+	parameters.customToolBar = "0 | 1 501 | 5 19 | 15 2 18 | 10 53 | 100001 | 8 9 4 3 | 40 41 42 | 27 28 6";  // Added show, hide, delete
 </script>
 
 <div id="applet_container">
@@ -28,13 +28,13 @@ Excellent.  You are done.
 <script type="text/javascript">
 {% include testobjects.js %}
 
-checkobject("incenter",0,0.5);
+checkobject("incenter",0,-0.5);
 if (drawn("incenter")){
 	Command('progress = 50');
 }
-checkobject("F1",0,0.5);
-checkobject("F2",0,0.5);
-checkobject("F3",0,0.5);
+checkobject("F1",0,-0.5);
+checkobject("F2",0,-0.5);
+checkobject("F3",0,-0.5);
 if (drawn("F2")||drawn("F2")||drawn("F3")){
 	Command('progress = 75');
 }
