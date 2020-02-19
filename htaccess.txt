@@ -1,0 +1,6 @@
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+# the above ignores any url for a file that exists on the site
+RewriteCond %{REQUEST_FILENAME} !-d
+# the above ignores any url for a directory that exists on the site
+RewriteRule ^(.+)$ /notfound.html?page_url=$1 [NC,QSA]
