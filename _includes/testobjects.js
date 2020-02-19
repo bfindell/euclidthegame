@@ -79,10 +79,11 @@ function newObjectListener(obj) {
 			var lastcomma = cmdString.indexOf(",");
 			if(cmdString.substring(0,3) == "Cir" && (isLowerCase(cmdString.substring(lastcomma+2,lastcomma+3)) || cmdString.substring(lastcomma+2,lastcomma+4) =="Se" || cmdString.substring(lastcomma+2,lastcomma+4) =="Ra")) {
 				primitives = false;
-				console.log("Used compass tool.");
+				console.log("Compass tool.");
 			}
 		}
 
+// The following code disallows (by deletion) the angle bisector of a straight angle.  
 if (cmdString.substring(0,13) == "AngleBisector"){
 	var obj1 = cmdString.substring(14,15);
 	if (ggbApplet.getObjectType(obj1) === "point"){
@@ -122,7 +123,7 @@ if (cmdString.substring(0,13) == "AngleBisector"){
 		} 
 	}
 
-	// This function check line segments.
+	// This function checks line segments.
 	function checksegment(target,x,y) {
 		if (ggbApplet.getObjectType(obj) == "segment") {
 			var beginpointobject = "Point["+obj+",0]"
@@ -160,7 +161,7 @@ if (cmdString.substring(0,13) == "AngleBisector"){
 		}
 	}
 
-	// This function check if the new point is on the targetline.
+	// This function checks if the new point is on the targetline.
 	function checkpointontarget(target,x,y) {
 		if (ggbApplet.getObjectType(obj) == "point") {
 			Command("finished = ("+target+"(x("+obj+"))==y("+obj+"))");
