@@ -51,7 +51,7 @@ for (var i = 0; i <= maxlevel; i++) {
 				}
 			}
 			// When at a completed level, give link to next level, if not completed.  
-			var number = {{page.number}}
+			var number = {{page.number}} - 0;
 			var next = number + 1;
 			var nextlevel = "Level"+next;			
 			console.log(localStorage.nextlevel);

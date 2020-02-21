@@ -1,33 +1,26 @@
 ---
 layout: default
-title: Level 31
-cat: level
+title: Rotation
 lang: en
+cat: level
 number: 31
-
 ---
-<p id="goal">
-	<b>Goal:</b> Complete Euclid's Proposition 2: To place a straight line equal to a given straight line (segment) with one end at a given point.  Let A be the given point, and BC the given straight line (segment).
+<p id="goal"><b>Goal:</b> Construct the rotation of point P about point O by angle BAC. 
 </p>
 
 <p id="winningimg">
-<img src="/img/Level{{page.number}}.png"/ >
+<img src="/img/Level31.png"/ >
 </p>
-
 <div id="hidden" style="display: none">
 <p id="level">
-<b>Excellent!</b> This construction and Level 1 together demonstrate that a (non-collapsing) compass is equivalent to the primitive tools.  Previously we accomplished the same thing through Levels 7, 8, and 9.
-<br><br>
-Can you prove, based on your construction, that AF = BC?
-
-<!-- Then go to <a href="/Level29/">Level 29</a>! -->
+<b>Nice!</b>  Traces are turned on.  Drag point <b>P</b>, and observe how the construction generalizes to the whole plane.<br><br>
+You have completed defining the basic rigid motions!  
 </p>
 </div>
-
 <script type="text/javascript">
 	{% include parameters480p.js %}
-    parameters.customToolBar = "0 | 501 | 5 | 15 | 18 | 10 | 100001"; // | 9 | 4 | 3 | 53";
-	parameters.ggbBase64 = "{% base64 ggb/Level31.ggb %}" ;
+ 	parameters.ggbBase64 = "{% base64 ggb/Level31.ggb %}" ;	
+//	parameters.customToolBar = "0 | 1 501 | 5 19 | 15 2 18 | 10 53 | 100001 | 8 9 4 3 | 40 41 42 | 27 28 6";  // Added show, hide, delete
 </script>
 
 <div id="applet_container">
@@ -36,19 +29,27 @@ Can you prove, based on your construction, that AF = BC?
 <script type="text/javascript">
 {% include testobjects.js %}
 
-checkobject("D1",0.3,-0.3);
-checkobject("E1",0.3,-0.3);
-checkobject("F1",0.3,-0.3);
+checkobject("target1");
 
-checkdirection("ray1",0.3,-0.3);
-checkdirection("ray2",0.3,-0.3);
+checkdirection("target1",0,-0.5);
+if (drawn("target1")) {
+	Command('progress = 25');
+}
 
+checkobject("target2");
 
-if (drawn("D1") || drawn("E1")){
+checkdirection("target2",0,-0.5);
+if (drawn("target2")) {
 	Command('progress = 50');
 }
 
-LevelCompleted(drawn("F1") && drawn("ray2"),5);
+checkobject("circle1",0,-0.5);
+if (drawn("circle1"),80){
+	Command('progress = 75')
+}
 
+checkobject("Pprime",0,-0.5);
+
+LevelCompleted(drawn("Pprime"),4);
 }
 </script>

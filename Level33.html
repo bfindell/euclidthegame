@@ -1,9 +1,9 @@
 ---
 layout: default
-title: Level 32
+title: Level 33
 cat: level
 lang: en
-number: 32
+number: 33
 
 ---
 <p id="goal">
@@ -11,7 +11,7 @@ number: 32
 </p>
 
 <p id="winningimg">
-<img src="/img/Level32.png"/ >
+<img src="/img/Level33.png"/ >
 </p>
 
 <div id="hidden" style="display: none">
@@ -26,8 +26,8 @@ Can you prove, based on your construction, that AF = BC?
 
 <script type="text/javascript">
 	{% include parameters480p.js %}
-    parameters.customToolBar = "0 | 501 | 5 | 15 | 18 | 10 | 100001 | 40 41 42 | 27 28 6"; // | 9 | 4 | 3 | 53";
-	parameters.ggbBase64 = "{% base64 ggb/Level32.ggb %}" ;
+    parameters.customToolBar = "0 | 501 | 5 | 15 | 18 | 10 | 100001"; // | 9 | 4 | 3 | 53";
+	parameters.ggbBase64 = "{% base64 ggb/Level33.ggb %}" ;
 </script>
 
 <div id="applet_container">
@@ -39,18 +39,16 @@ Can you prove, based on your construction, that AF = BC?
 checkobject("D1",0.3,-0.3);
 checkobject("E1",0.3,-0.3);
 checkobject("F1",0.3,-0.3);
-checkobject("target1",0.3,-0.3);
-
 
 checkdirection("ray1",0.3,-0.3);
 checkdirection("ray2",0.3,-0.3);
 
 
-if (drawn("D1") || drawn("E1") || drawn("F1")) {
+if (drawn("D1") || drawn("E1")){
 	Command('progress = 50');
 }
 
-LevelCompleted(drawn("target1"),5);
+LevelCompleted(drawn("F1") && drawn("ray2"),5);
 
 }
 </script>
