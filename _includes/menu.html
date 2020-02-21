@@ -26,14 +26,14 @@ for (var i = 0; i <= maxlevel; i++) {
 }
 </script>
 
-<b>Navigation:</b>
+<h4>Navigation:</h4>
     {% assign allPages = site.pages | group_by:"cat" %}
         {% for page_cat in allPages %}
         {% unless page_cat["name"] == 'notSorted' %}
-            <ul>
             {% assign sorted_pages = page_cat["items"] | sort:"number" %}
  			<script> // Give links and medals for all completed levels
-			for (var i = 0; i <= maxlevel; i++) {
+            document.write("<ul>");
+ 			for (var i = 0; i <= maxlevel; i++) {
 				var moves = parseInt(localStorage["Level"+i]);
 				var minmoves = window["minlevel"+i];
 				var movesp = parseInt(localStorage["Level"+i+"p"]);
@@ -57,16 +57,25 @@ for (var i = 0; i <= maxlevel; i++) {
 			console.log(localStorage.nextlevel);
 			if (localStorage.Level{{page.number}} > 0 && (localStorage[nextlevel] > 0) === false){
 				if ({{page.number}} < maxlevel){
-					document.write("<li><a href=\"/"+nextlevel+"\">Level "+next+"</a></li>");}}	
+					document.write("<li><a href=\"/"+nextlevel+"\">Level "+next+"</a></li>");
+					}
+				}	
+            document.write("</ul>");
+            
+			if ({{page.number}} > 12){
+				document.write("<h4>Bonus Levels</h4>");
+	            document.write("<ul>");
+				document.write("<li><a href=/Level26>Triangles</a></li>");
+				document.write("<li><a href=/Level29>Transformations</a></li>");
+    	        document.write("</ul>");
+			}		
 			</script>
-        </ul>
         {% endunless %}
         {% endfor %}
 
-<b>Gold Medals: <script>document.write(totalscore);</script> </b> 
-<br><br>
+<h4>Gold Medals: <script>document.write(totalscore);</script> </h4> 
 <a href="/Medal/">Info about medals<br> and controls</a>
-<br><br>
+<br>
 
 
 
