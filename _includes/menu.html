@@ -1,82 +1,191 @@
 <script>
-// The following function displays gold or silver medals with the number of moves
-function encircle(moves,min){
-	var encircled = parseInt(moves);
-	if (encircled > 20){
-		encircled = 9331;  // characters 9312 through 9331 look like medals
+	// The following function displays gold or silver medals with the number of moves
+	var totalGold = 0; // Keep track of every gold metal
+	function encircle(moves, min) {
+		var encircled = parseInt(moves);
+		if (encircled > 20) {
+			encircled = 9331; // characters 9312 through 9331 look like medals
+		} else {
+			encircled = encircled + 9311;
+		}
+		if (parseInt(moves) <= min || min == 0) {
+			encircled = '<span id="medalgold">&#' + encircled + '</span>';
+			totalGold++;
+		} else {
+			encircled = '<span id="medal">&#' + encircled + '</span>';
+		}
+		return encircled;
 	}
-	else{encircled = encircled + 9311;}
-	if (parseInt(moves) <= min){
-		encircled = "<span id=\"medalgold\">&#"+encircled+"</span>";
-	}
-	else{encircled = "<span id=\"medal\">&#"+encircled+"</span>";}
-	return encircled;
-}
-
-// Count Gold Medals.  Score displayed after navigation links.  
-var totalscore =0;
-for (var i = 0; i <= maxlevel; i++) {
- 	// console.log(i, window["minlevel"+i],parseInt(localStorage["Level"+i]),window["minlevel"+i+"p"],parseInt(localStorage["Level"+i+"p"]));
- 	if ((parseInt(localStorage["Level"+i+"p"]) <= window["minlevel"+i+"p"] ) && !parseInt(localStorage["Level"+i+"p"])==0){
-		totalscore += 1;
-  	} 
- 	if ((parseInt(localStorage["Level"+i]) <= window["minlevel"+i]) && !parseInt(localStorage["Level"+i])==0){
-		totalscore += 1;
-	}
-}
 </script>
 
 <h4>Navigation:</h4>
-    {% assign allPages = site.pages | group_by:"cat" %}
-        {% for page_cat in allPages %}
-        {% unless page_cat["name"] == 'notSorted' %}
-            {% assign sorted_pages = page_cat["items"] | sort:"number" %}
- 			<script> // Give links and medals for all completed levels
-            document.write("<ul>");
- 			for (var i = 0; i <= maxlevel; i++) {
-				var moves = parseInt(localStorage["Level"+i]);
-				var minmoves = window["minlevel"+i];
-				var movesp = parseInt(localStorage["Level"+i+"p"]);
-				var minmovesp = window["minlevel"+i+"p"];
-				if (moves > 0 || movesp > 0 ){
-					var levelurl = "<li ><a href=\"/Level"+i+"\">Level "+i+"</a> ";
-				if (i==0){
-					levelurl = "<li ><a href=\"/Tutorial\">Tutorial</a> ";}
-				if (moves > 0){
-					levelurl +=  encircle(moves,minmoves)+"";}
-				if (movesp > 0){ 
-					levelurl +=  encircle(movesp,minmovesp)+" ";}
-				levelurl +="</li>";
-				document.write(levelurl);
-				}
+<script>
+	// Give links and medals for all completed levels
+	function localStorageLevels(level) {
+		var lastLevel = localStorage.lastLevel + '';
+		localStorage.clear();
+		for (var i = 0; i <= level && i < levels.length; i++) {
+			localStorage['Level' + i] = Math.floor(Math.random() * 19) + 1;
+			if (Math.random() < 0.5) {
+				localStorage['Level' + i + 'p'] = Math.floor(Math.random() * 19) + 1;
 			}
-			// When at a completed level, give link to next level, if not completed.  
+		}
+	}
+
+	var categoryNumbers = Object.keys(categories);
+	var lastBasicsLevel = categoryNumbers[1] - 1; // The last level that 'Basics' includes
+
+	var categoriesHTML = [];
+	var categoryName = '';
+	var categoryLevels = [];
+
+	var prevmoves;
+	var prevmovesp;
+
+	for (var i = 0, numLevels = levels.length; i <= numLevels; i++) {
+		var category = categories[i];
+		var isLastLevel = i === numLevels;
+
+		// Finish creating a category if a new one must be made
+		if (category || isLastLevel) {
+			if (categoryLevels.length > 0) {
+				categoriesHTML.push({
+					name: categoryName,
+					levels: categoryLevels
+				});
+			}
+
+			if (isLastLevel) {
+				break;
+			}
+
+			categoryName = category.name;
+			categoryLevels = [];
+		}
+
+		var level = levels[i];
+		var moves = parseInt(localStorage['Level'+i]);
+		var minmoves = level.all;
+		var movesp = parseInt(localStorage['Level'+i+'p']);
+		var minmovesp = level.primitive;
+
+		var completedBasics = localStorage['Level'+lastBasicsLevel] > 0 || localStorage['Level'+lastBasicsLevel+'p'] > 0;
+		var isBonusLevel = category && category.bonus;
+
+		if ((moves > 0 || movesp > 0 || prevmoves > 0 || prevmovesp > 0) ||
+			(completedBasics && isBonusLevel)) {
+			var levelHTML = '<li>';
 			var number = {{page.number}} - 0;
 			var next = number + 1;
-			var nextlevel = "Level"+next;			
-			console.log(localStorage.nextlevel);
-			if (localStorage.Level{{page.number}} > 0 && (localStorage[nextlevel] > 0) === false){
-				if ({{page.number}} < maxlevel){
-					document.write("<li><a href=\"/"+nextlevel+"\">Level "+next+"</a></li>");
+
+			// Show 'Tutorial' if we are on it
+			if (i === 0) {
+				levelHTML += '<a href="/Tutorial">Tutorial</a> ';
+			}
+			// Show 'Level[number] - Next' if there is a next level
+			else if (i === next) {
+				// When at a completed level, give link to next level, if not completed.
+				var nextLevelName = 'Level'+next;
+				var currentLevelCompleted = localStorage.Level{{page.number}} > 0 || localStorage.Level{{page.number}}p > 0;
+				if (currentLevelCompleted) {
+					// Show the next level, if there is a next one.
+					if (number < numLevels) {
+						levelHTML += '<a href="/'+nextLevelName+'">Level '+next+' - Next</a> ';
 					}
-				}	
-            document.write("</ul>");
-            
-			if ({{page.number}} > 12){
-				document.write("<h4>Bonus Levels</h4>");
-	            document.write("<ul>");
-				document.write("<li><a href=/Level26>Triangles</a></li>");
-				document.write("<li><a href=/Level29>Transformations</a></li>");
-    	        document.write("</ul>");
-			}		
-			</script>
-        {% endunless %}
-        {% endfor %}
+				}
+			}
+			// Show 'Level[number]'
+			else {
+				levelHTML += '<a href="/Level'+i+'">Level '+i+'</a> ';
+			}
 
-<h4>Gold Medals: <script>document.write(totalscore);</script> </h4> 
-<a href="/Medal/">Info about medals<br> and controls</a>
-<br>
+			// Show the metals if the level has been completed
+			if (moves > 0) {
+				levelHTML += encircle(moves, minmoves) + ' ';
+			}
+			if (movesp > 0) {
+				levelHTML += encircle(movesp, minmovesp) + '';
+			}
+			levelHTML += '</li>';
+			categoryLevels.push(levelHTML);
+		}
 
+		prevmoves = moves;
+		prevmovesp = movesp;
+	}
 
+	// Create the navigation menu
+	document.write('<div class="nav">');
+	for (var i = 0; i < categoriesHTML.length; i++) {
+		var category = categoriesHTML[i];
 
-  
+		// Show the category title and dropdown arrow
+		document.write('<div class="category" data-name="' + category.name + '" data-open="false">' +
+			category.name +
+			'<span class="arrow">&#9652;</span>' +
+			'<ul class="category-links">');
+
+		// Show all of the level links
+		for (var j = 0; j < category.levels.length; j++) {
+			var level = category.levels[j];
+			document.write(level);
+		}
+
+		document.write('</ul></div>');
+	}
+	document.write('</div>');
+
+	// Get the name of the category we are currently in
+	var currentCategoryName;
+	for (var i = 0; i < categoryNumbers.length; i++) {
+		var number = categoryNumbers[i];
+		if ({{page.number}} >= number) {
+			currentCategoryName = categories[number].name;
+		} else {
+			break;
+		}
+	}
+
+	// Open the current category
+	var categoryDivs = document.getElementsByClassName('category');
+	for (var i = 0; i < categoryDivs.length; i++) {
+		var div = categoryDivs[i];
+		if (div.dataset.name === currentCategoryName) {
+			onClick({ currentTarget: div });
+		}
+		div.addEventListener('click', onClick);
+	}
+
+	// Triggers when clicking on a category
+	function onClick(e) {
+		var div = e.currentTarget;
+		var open = div.dataset.open === 'true';
+		var arrow = div.getElementsByClassName('arrow')[0];
+		var links = div.getElementsByClassName('category-links')[0];
+
+		// Close the category if we are not clicking on a level link
+		var isAnchorTag = e.target && e.target.tagName === 'A';
+		if (!isAnchorTag && open) {
+			div.dataset.open = 'false';
+			div.style.backgroundColor = '#efefef';
+			arrow.style.transform = 'rotate(0deg)';
+			links.style.display = 'none';
+		}
+		// Open the category
+		else {
+			div.dataset.open = 'true';
+			div.style.backgroundColor = '#e0e0e0';
+			arrow.style.transform = 'rotate(180deg)';
+			links.style.display = 'block';
+		}
+	}
+</script>
+
+<h4>
+	Gold Medals:
+	<script>
+		document.write(totalGold);
+	</script>
+</h4>
+<a href="/Medal/">Info about medals<br />and controls</a>
+<br />

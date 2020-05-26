@@ -1,40 +1,64 @@
-#Menu
-{
-    float:left;
-    width:170px;
+#Menu {
+	float: left;
+	width: 230px;
 }
-#page
-{
+#page {
 	width: 700px;
-    overflow:hidden;
+	overflow: hidden;
 }
 a {
-    color:#145d8a;
-    text-decoration: none;
+	color: #145d8a;
+	text-decoration: none;
 }
 
 a:visited {
-    color: #145d8a;
+	color: #145d8a;
 }
 a:hover,
 a:focus,
 a:active {
-    color: rgb(255,204,102);
+	color: rgb(255, 204, 102);
 	font-weight: bold;
 }
 a:focus,
 a:active {
-    color: rgb(255,204,102);
+	color: rgb(255, 204, 102);
 	font-weight: bold;
-	}
-	
-#medal{
-	font-family: "Times New Roman"; 
+}
+
+.nav {
+	margin-right: 15px;
+	list-style: none;
+}
+
+.category {
+	cursor: pointer;
+	outline: none;
+	padding: 7px 10px;
+	background-color: #efefef;
+	transition: background-color 0.2s;
+}
+
+.arrow {
+	content: '\203A';
+	float: right;
+	margin-right: 5px;
+	transform: rotate(0deg);
+	transition: transform 0.4s;
+}
+
+.category-links {
+	display: none;
+	margin-top: 5px;
+}
+
+#medal {
+	font-family: "Times New Roman";
 	color: Silver;
 }
 
-#medalgold{
-	font-family: "Times New Roman"; 
+#medalgold {
+	font-family: "Times New Roman";
 	position: relative;
-    color: rgb(255,204,102);
+	color: rgb(255, 204, 102);
 }

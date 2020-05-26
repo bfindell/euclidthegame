@@ -1,28 +1,27 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name=viewport content="width=device-width,initial-scale=1" />  
-    <title>{{ site.title}} - {{ page.title }}</title>
-    <link rel="icon" type="image/png" href="/img/favicon.png" />
-    <meta name="description" content="{{ site.description }}" />
-    <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}" />
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
+	<title>{{ site.title }} - {{ page.title }}</title>
+	<link rel="icon" type="image/png" href="/img/favicon.png" />
+	<meta name="description" content="{{ site.description }}" />
+	<link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}" />
 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>  <!-- Needed (?) for .toggle and .slidedown.  -->
-    <script src="https://www.geogebra.org/apps/deployggb.js"></script>
-	<script type="text/javascript" src="/javascript/minmoves.js"></script>
-    <link rel="stylesheet" type="text/css" href="/css/mainv2.css">
-    <link rel="stylesheet" type="text/css" href="/css/layoutv3.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> <!-- Needed (?) for .toggle and .slidedown.  -->
+	<script src="https://www.geogebra.org/apps/deployggb.js"></script>
+	<script type="text/javascript" src="/javascript/levels.js"></script>
+	<script type="text/javascript" src="/javascript/categories.js"></script>
+	<link rel="stylesheet" type="text/css" href="/css/mainv2.css" />
+	<link rel="stylesheet" type="text/css" href="/css/layoutv3.css" />
 
-<script type="text/javascript">
-function toggleDiv(divId) {
-   $("#"+divId).toggle();
-}
-</script>
+	<script type="text/javascript">
+		function toggleDiv(divId) {
+			$('#' + divId).toggle();
+		}
+	</script>
 
-<script>
-
-{% if page.number  %}
-localStorage.lastLevel = {{ page.number}} ;
-{% endif %}
-</script>
-	
+	<script>
+		{% if page.number  %}
+		localStorage.lastLevel = {{ page.number }} ;
+		{% endif %}
+	</script>
 </head>

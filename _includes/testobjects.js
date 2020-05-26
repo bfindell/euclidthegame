@@ -190,11 +190,11 @@ function LevelCompleted(condition,mincount){  // The parameter mincount is obsol
 		$( "#hidden" ).slideDown(1000);	
 		// $( "#hiddencomments" ).toggle();	 Used for disqus comments.
 		var count = ggbApplet.getValue("countnumber");
-		if (primitives && (count === minlevel{{page.number}}p)){
+		if (primitives && (count === levels[{{page.number}}].primitive)){
 			Command('score2 = Text["Perfect! You have done this challenge in a minimum number of primitive moves!", '+abspos("0.35","-0.90")+']');
 		}
 		if (!primitives) {
-			if(count === minlevel{{page.number}}){
+			if(count === levels[{{page.number}}].all){
 				Command('score2 = Text["Perfect! You have done this challenge in a minimum number of moves!", '+abspos("0.35","-0.90")+']');
 			}
 		}
