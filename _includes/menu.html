@@ -70,7 +70,7 @@
 				levelHTML += '<a href="/Tutorial">Tutorial</a> ';
 			}
 			// Show 'Level[number] - Next' if there is a next level
-			else if (pageNumber !== NaN && i === next) {
+			else if (!isNaN(pageNumber) && i === next) {
 				// When at a completed level, give link to next level, if not completed.
 				var nextLevelName = 'Level'+next;
 				var currentLevelCompleted = localStorage.Level{{page.number}} > 0 || localStorage.Level{{page.number}}p > 0;
