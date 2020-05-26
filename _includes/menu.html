@@ -20,18 +20,6 @@
 
 <h4>Navigation:</h4>
 <script>
-	// Give links and medals for all completed levels
-	function localStorageLevels(level) {
-		var lastLevel = localStorage.lastLevel + '';
-		localStorage.clear();
-		for (var i = 0; i <= level && i < levels.length; i++) {
-			localStorage['Level' + i] = Math.floor(Math.random() * 19) + 1;
-			if (Math.random() < 0.5) {
-				localStorage['Level' + i + 'p'] = Math.floor(Math.random() * 19) + 1;
-			}
-		}
-	}
-
 	var categoryNumbers = Object.keys(categories);
 	var lastBasicsLevel = categoryNumbers[1] - 1; // The last level that 'Basics' includes
 
