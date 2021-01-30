@@ -1,34 +1,27 @@
 ---
 layout: default
-title: Level 32
-cat: level
+title: Dilation
 lang: en
+cat: level
 number: 32
-
 ---
-<p id="goal">
-	<b>Goal:</b> Complete Euclid's Proposition 2: To place a straight line equal to a given straight line (segment) with one end at a given point.  Let A be the given point, and BC the given straight line (segment).<br><br>
-	Euclid's approach is shown below, resulting in point F.  This sketch allows for other correct solutions by requiring that you construct the dotted circle centered at A.  All solutions lie on that circle, which illustrates that this level is about creating a (non-collapsing) compass tool.
+<p id="goal"><b>Goal:</b> Construct a dilation of point P about point O by the scale factor indicated
+	by OQ'/OQ. 
 </p>
 
 <p id="winningimg">
 <img src="/img/Level32.png"/ >
 </p>
-
 <div id="hidden" style="display: none">
 <p id="level">
-<b>Excellent!</b> This construction and the Equilateral Triangle construction (Level 1) together demonstrate that any construction with a (non-collapsing) compass tool can be completed with only the primitive tools (collapsing compass and straightedge).  Previously we accomplished the same result through Levels 7, 8, and 9.
-<br><br>
-Can you prove, based on your construction, that AF = BC?
-
-<!-- Then go to <a href="/Level29/">Level 29</a>! -->
+<b>Nice!</b>  Traces are turned on.  Drag point <b>P</b>, and observe how the construction generalizes to the whole plane.<br><br>
+You have completed defining the important transformations for similarity and congruence!  
 </p>
 </div>
-
 <script type="text/javascript">
 	{% include parameters480p.js %}
-    parameters.customToolBar = "0 | 501 | 5 | 15 | 18 | 10 | 100001 | 40 41 42 | 27 28 6"; // | 9 | 4 | 3 | 53";
-	parameters.ggbBase64 = "{% base64 ggb/Level32.ggb %}" ;
+ 	parameters.ggbBase64 = "{% base64 ggb/Level32.ggb %}" ;	
+//	parameters.customToolBar = "0 | 1 501 | 5 19 | 15 2 18 | 10 53 | 100001 | 8 9 4 3 | 40 41 42 | 27 28 6";  // Added show, hide, delete
 </script>
 
 <div id="applet_container">
@@ -37,21 +30,25 @@ Can you prove, based on your construction, that AF = BC?
 <script type="text/javascript">
 {% include testobjects.js %}
 
-checkobject("D1",0.3,-0.3);
-checkobject("E1",0.3,-0.3);
-checkobject("F1",0.3,-0.3);
-checkobject("target1",0.3,-0.3);
 
+checkobject("target1");
+checkdirection("target1",0,-0.5);
+checkobject("target2");
+checkdirection("target2",0,-0.5);
 
-checkdirection("ray1",0.3,-0.3);
-checkdirection("ray2",0.3,-0.3);
-
-
-if (drawn("D1") || drawn("E1") || drawn("F1")) {
+if (drawn("target1") || drawn("target2")) {
 	Command('progress = 50');
 }
 
-LevelCompleted(drawn("target1"),5);
+checkobject("target3",0,-0.5);
+checkdirection("target3",0,-0.5);
 
+if (drawn("target3")){
+	Command('progress = 75')
+}
+
+checkobject("Pprime",0,-0.5);
+
+LevelCompleted(drawn("Pprime"),4);
 }
 </script>

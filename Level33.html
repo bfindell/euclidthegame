@@ -8,7 +8,7 @@ number: 33
 ---
 <p id="goal">
 	<b>Goal:</b> Complete Euclid's Proposition 2: To place a straight line equal to a given straight line (segment) with one end at a given point.  Let A be the given point, and BC the given straight line (segment).<br><br>
-	This is an obsolete version of Level 32.  
+	Euclid's approach is shown below, resulting in point F.  This sketch allows for other correct solutions by requiring that you construct the dotted circle centered at A.  All solutions lie on that circle, which illustrates that this level is about creating a (non-collapsing) compass tool.
 </p>
 
 <p id="winningimg">
@@ -17,7 +17,7 @@ number: 33
 
 <div id="hidden" style="display: none">
 <p id="level">
-<b>Excellent!</b> This construction and Level 1 together demonstrate that a (non-collapsing) compass is equivalent to the primitive tools.  Previously we accomplished the same thing through Levels 7, 8, and 9.
+<b>Excellent!</b> This construction and the Equilateral Triangle construction (Level 1) together demonstrate that any construction with a (non-collapsing) compass tool can be completed with only the primitive tools (collapsing compass and straightedge).  Previously we accomplished the same result through Levels 7, 8, and 9.
 <br><br>
 Can you prove, based on your construction, that AF = BC?
 
@@ -27,7 +27,7 @@ Can you prove, based on your construction, that AF = BC?
 
 <script type="text/javascript">
 	{% include parameters480p.js %}
-    parameters.customToolBar = "0 | 501 | 5 | 15 | 18 | 10 | 100001"; // | 9 | 4 | 3 | 53";
+    parameters.customToolBar = "0 | 501 | 5 | 15 | 18 | 10 | 100001 | 40 41 42 | 27 28 6"; // | 9 | 4 | 3 | 53";
 	parameters.ggbBase64 = "{% base64 ggb/Level33.ggb %}" ;
 </script>
 
@@ -40,16 +40,18 @@ Can you prove, based on your construction, that AF = BC?
 checkobject("D1",0.3,-0.3);
 checkobject("E1",0.3,-0.3);
 checkobject("F1",0.3,-0.3);
+checkobject("target1",0.3,-0.3);
+
 
 checkdirection("ray1",0.3,-0.3);
 checkdirection("ray2",0.3,-0.3);
 
 
-if (drawn("D1") || drawn("E1")){
+if (drawn("D1") || drawn("E1") || drawn("F1")) {
 	Command('progress = 50');
 }
 
-LevelCompleted(drawn("F1") && drawn("ray2"),5);
+LevelCompleted(drawn("target1"),5);
 
 }
 </script>
