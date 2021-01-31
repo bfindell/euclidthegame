@@ -28,7 +28,7 @@ function getCoord(objx){
 		var y = ggbApplet.getYcoord(objx);
 		return "("+x+","+y+")"
 	}
-	else if (ggbApplet.getObjectType(objx)==="segment" || ggbApplet.getObjectType(objx)==="ray" ){
+	else if (ggbApplet.getObjectType(objx)==="segment" || ggbApplet.getObjectType(objx)==="ray" || ggbApplet.getObjectType(objx)==="line" ){
 		Command("xx = x(Point["+objx+",0.5])");
 		Command("yy = y(Point["+objx+",0.5])");
 		var x = ggbApplet.getValue("xx");
