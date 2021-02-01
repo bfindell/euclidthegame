@@ -28,6 +28,10 @@ Note that the compass tool allows you to translate and rotate a segment anywhere
 <script type="text/javascript">
 {% include testobjects.js %}
 
+checkobject("targetcircle",0,0.5);
+if(drawn("targetcircle")){
+	Command('progress = 50');
+}
 checkobject("targetpoint",0,0.5);
    
 LevelCompleted(drawn("targetpoint"),1);

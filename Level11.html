@@ -29,6 +29,18 @@ Then go to <a href="/Level12/">Level 12</a>.
 <script type="text/javascript">
 {% include testobjects.js %}
 
+checkobject("circle1a",-0.5,-0.5);
+checkobject("circle1b",-0.5,-0.5);
+checkobject("circle2a",-0.5,0.5);
+checkobject("circle2b",-0.5,0.5);
+
+if (drawn("circle1a")||drawn("circle1b")||drawn("circle2a")||drawn("circle2b")) {
+		Command('progress = 20');
+}
+if ((drawn("circle1a")||drawn("circle1b"))&&(drawn("circle2a")||drawn("circle2b"))) {
+		Command('progress = 40');
+}
+
 checksegment("target1a",-0.5,0);
 checksegment("target2a",-0.5,0);
 checksegment("target3a",-0.5,0);
@@ -39,7 +51,7 @@ checksegment("target3b",0.5,0);
 checksegment("target4b",0.5,0);
 
 if (drawn("target1a")||drawn("target1b")||drawn("target2a")||drawn("target2b")||drawn("target3a")||drawn("target3b")||drawn("target4a")||drawn("target4b")){
-	Command('progress = 50');
+	Command('progress = 60');
    }	
    
 LevelCompleted(
