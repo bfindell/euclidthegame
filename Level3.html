@@ -30,18 +30,22 @@ You unlocked a new tool: Angle bisector! Go to <a href="/Level4/">Level 4</a>!
 <script type="text/javascript">
 {% include testobjects.js %}
 
-checkpointontarget("bisect",0.5,0);
-checkdirection("bisect",-1,0);
 checkpointontarget("a",-0.3,0.3);
 checkpointontarget("b",-0.3,0.3);
+checkpointontarget("bisect",0.5,0);
+checkdirection("bisect",-1,0);
 
 
 if (drawn("pa") || drawn("pb")){
-	Command('progress = 10');
+	Command('progress = 20');
+   }	
+
+if (drawn("pa") && drawn("pb")){
+	Command('progress = 40');
    }	
 
 if (drawn("pbisect")){
-	Command('progress = 50');
+	Command('progress = 60');
    }	
 
 LevelCompleted(drawn("bisect"),3);

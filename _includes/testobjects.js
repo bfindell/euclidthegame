@@ -162,6 +162,8 @@ if (cmdString.substring(0,13) == "AngleBisector"){
 	}
 
 	// This function checks if the new point is on the targetline.
+	// Assuming 'target' is a line, the command "finished = (target(x(A))==y(A))" computes the 
+	// y-coordinate corresponding to x(A) on 'target', and checks its equality to y(A).
 	function checkpointontarget(target,x,y) {
 		if (ggbApplet.getObjectType(obj) == "point") {
 			Command("finished = ("+target+"(x("+obj+"))==y("+obj+"))");
