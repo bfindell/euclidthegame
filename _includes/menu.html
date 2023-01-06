@@ -86,7 +86,7 @@
 				levelHTML += '<a href="/Level'+i+'">Level '+i+'</a> ';
 			}
 
-			// Show the metals if the level has been completed
+			// Show the medals if the level has been completed
 			if (moves > 0) {
 				levelHTML += encircle(moves, minmoves) + ' ';
 			}
@@ -161,7 +161,7 @@
 		// Open the category
 		else {
 			div.dataset.open = 'true';
-			div.style.backgroundColor = '#e0e0e0';
+			div.style.backgroundColor = '#e5e5e5';
 			arrow.style.transform = 'rotate(180deg)';
 			links.style.display = 'block';
 		}

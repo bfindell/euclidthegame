@@ -13,7 +13,9 @@ number: 18
 </p>
 <div id="hidden" style="display: none">
 <p id="level">
-Go to <a href="/Level19/">Level 19</a>.
+<b>Amazing!</b> You have completed the intermediate levels!<br><br>  
+
+For more fun, go to <a href="/Level19/">Level 19</a>.
 </p>
 </div>
 <script type="text/javascript">
@@ -27,7 +29,22 @@ Go to <a href="/Level19/">Level 19</a>.
 <script type="text/javascript">
 {% include testobjects.js %}
 
+
+ checkdirection("perpLine",0.1,1);
+ checkdirection("perpChord",0.1,1);
+ checkobject("center",0.1,-0.2);
  checkobject("target1");
+
+ if(drawn("perpLine")||drawn("perpChord")) {
+ 	Command('progress = 20')
+ }
+ if(drawn("perpLine")&&drawn("perpChord")) {
+ 	Command('progress = 40')
+ }
+ if(drawn("center")) {
+ 	Command('progress = 70')
+ }
+
 
 LevelCompleted(drawn("target1"),4);
 }

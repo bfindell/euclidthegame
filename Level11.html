@@ -5,7 +5,7 @@ cat: level
 lang: en
 number: 11
 ---
-<p id="goal"><b>Goal:</b> Construct a triangle whose sides have the same length as the given segments. Use segment AB as base.
+<p id="goal"><b>Goal:</b> Construct a triangle whose sides have the same lengths as the given segments. Use segment AB as base.
 </p>
 
 <p id="winningimg">
@@ -13,13 +13,16 @@ number: 11
 </p>
 <div id="hidden" style="display: none">
 <p id="level">
-Nice!  Now change the given sides to see that sometimes there is no such triangle. <br><br>
+Nice!  Use the arrow tool to change the given sides and observe that sometimes there is no such triangle. <br><br>
+
+Consider how you would you use these ideas to demonstrate a triangle congruence theorem.<br><br>
+
 Then go to <a href="/Level12/">Level 12</a>.
 </p>
 </div>
 <script type="text/javascript">
 	{% include parameters480p.js %}
-    parameters.customToolBar = "0 | 501 | 5 19 | 15 2 18 | 10 | 100001 | 8 9 4 3 | 53";
+    parameters.customToolBar = "0 | 501 | 5 19 | 15 2 18 | 10 | 53 | 100001 | 8 9 4 3";
 	parameters.ggbBase64 = "{% base64 ggb/Level11.ggb %}" ;	
 </script>
 
@@ -41,24 +44,24 @@ if ((drawn("circle1a")||drawn("circle1b"))&&(drawn("circle2a")||drawn("circle2b"
 		Command('progress = 40');
 }
 
-checksegment("target1a",-0.5,0);
-checksegment("target2a",-0.5,0);
-checksegment("target3a",-0.5,0);
-checksegment("target4a",-0.5,0);
-checksegment("target1b",0.5,0);
-checksegment("target2b",0.5,0);
-checksegment("target3b",0.5,0);
-checksegment("target4b",0.5,0);
+checksegment("target1a",-0.7,-0.2);
+checksegment("target2a",-0.7,0.2);
+checksegment("target3a",-0.7,-0.2);
+checksegment("target4a",-0.7,0.2);
+checksegment("target1b",0.5,-0.2);
+checksegment("target2b",0.5,0.2);
+checksegment("target3b",0.5,-0.2);
+checksegment("target4b",0.5,0.2);
 
 if (drawn("target1a")||drawn("target1b")||drawn("target2a")||drawn("target2b")||drawn("target3a")||drawn("target3b")||drawn("target4a")||drawn("target4b")){
 	Command('progress = 60');
    }	
    
 LevelCompleted(
-(drawn("target1a")&& drawn("target1b"))||
-(drawn("target2a")&& drawn("target2b"))||
-(drawn("target3a")&& drawn("target3b"))||
-(drawn("target4a")&& drawn("target4b"))
+(drawn("target1a") && drawn("target1b"))||
+(drawn("target2a") && drawn("target2b"))||
+(drawn("target3a") && drawn("target3b"))||
+(drawn("target4a") && drawn("target4b"))
 ,4);
 }
 </script>

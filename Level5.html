@@ -6,7 +6,7 @@ lang: en
 number: 5
 ---
 <p id="goal">
-	<b>Goal:</b> Construct a line (segment) perpendicular to the given line and going through point B.
+	<b>Goal:</b> Construct a line (or segment or ray) perpendicular to the given line and going through point B.
 </p>
 
 <p id="winningimg">
@@ -14,12 +14,12 @@ number: 5
 </p>
 <div id="hidden" style="display: none">
 <p id="level">
-You unlocked a new tool: Constructing perpendicular lines! Go to <a href="/Level6/">Level 6</a>!
+You unlocked a new tool: Construct perpendicular line! Go to <a href="/Level6/">Level 6</a>!
 </p>
 </div>
 <script type="text/javascript">
 	{% include parameters480p.js %}
-    parameters.customToolBar = "0 | 501 | 5 | 19 | 15 | 18 | 8 | 10 | 100001 | 9"// | 4 | 3 | 100002 | 53";
+    parameters.customToolBar = "0 | 501 | 5 | 19 | 15 | 18 | 10 | 100001 | 8 | 9"// | 4 | 3 | 100002 | 53";
 	parameters.ggbBase64 = "{% base64 ggb/Level5.ggb %}" ;	
 </script>
 
@@ -29,12 +29,17 @@ You unlocked a new tool: Constructing perpendicular lines! Go to <a href="/Level
 <script type="text/javascript">
 {% include testobjects.js %}
 
+checkobject("circleBA",-0.4,0.3);
 checkobject("pointR",-0.4,0.3);
 checkobject("pointPerp",-0.4,0.3);
-checkdirection("segmentPerp",0,0);
+checkdirection("segmentPerp",0.2,0);
+
+if (drawn("circleBA")) {
+	Command('progress = 10');
+}
 
 if (drawn("pointR")){
-	Command('progress = 10');
+	Command('progress = 30');
    }	
 
 if (drawn("pointPerp")){

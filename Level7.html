@@ -11,7 +11,7 @@ number: 7
 <p id="winningimg">
 <img src="/img/Level{{page.number}}.png"/ >
 </p>
-<p><b>Note that tools are now grouped in the toolbar!</b> Click on a tool icon to see related tools.</p>
+<p><b>Note that the line tools are now grouped in the toolbar!</b> Click on the segment icon to see related tools.</p>
 
 <div id="hidden" style="display: none">
 <p id="level">
@@ -20,7 +20,7 @@ You unlocked a new tool: Translate segment!<b> But this tool won't work when all
 </div>
 <script type="text/javascript">
 	{% include parameters480p.js %}
-    parameters.customToolBar = "0 | 501 | 5 | 19 | 15 2 18 | 8 | 10 | 100001 | 9 | 4 | 3 "//| 100002 | 53";
+    parameters.customToolBar = "0 | 501 | 5 | 19 | 15 2 18 | 10 | 100001 | 8 | 9 | 4 | 3 "//| 100002 | 53";
 	parameters.ggbBase64 = "{% base64 ggb/Level7.ggb %}" ;	
 </script>
 
@@ -30,14 +30,25 @@ You unlocked a new tool: Translate segment!<b> But this tool won't work when all
 <script type="text/javascript">
 {% include testobjects.js %}
 
-checkobject("targetPoint",0.3,0.3);
-checkdirection("segmentAC",0,0);
-checksegment("segmentCD",0,0);
-checkdirection("segmentBD",0,0);
-checkobject("lineParAB",0.5,0);   
-checkdirection("targetsegment",0,0);
+checkobject("targetPoint",0.3,0.2);
+checkdirection("segmentAC",-0.1,0.1);
+checkdirection("segmentBD",0.1,0.1);
+checkobject("lineParAB",0.6,0);   
+checkdirection("targetsegment",0.2,0);
 
-LevelCompleted((drawn("targetPoint") && drawn("targetsegment") )|| drawn("segmentCD"),3);
+if (drawn("lineParAB") || drawn("segmentAC")) {
+	Command('progress = 30');
+   }
+
+if (drawn("lineParAB") && drawn("segmentAC")) {
+	Command('progress = 50');
+   }
+
+if (drawn("lineParAB") && drawn("segmentBD")) {
+	Command('progress = 80');
+   }
+
+LevelCompleted((drawn("targetPoint") && drawn("targetsegment") ),3);
 
 }
 </script>

@@ -59,8 +59,8 @@ var levels = [
 	},
 	{
 		// 12
-		all: 3,
-		primitive: 5
+		all: 4,
+		primitive: 0
 	},
 	{
 		// 13

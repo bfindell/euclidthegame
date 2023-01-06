@@ -13,14 +13,14 @@ number: 6
 </p>
 <div id="hidden" style="display: none">
 <p id="level">
-You have unlocked a new tool: Constructing parallel lines! Go to <a href="/Level7/">Level 7</a>!
+You have unlocked a new tool: Construct parallel line! Go to <a href="/Level7/">Level 7</a>!
 <br><br>
 <b>Note: Look for grouped tools in the toolbar!</b>
 </p>
 </div>
 <script type="text/javascript">
 	{% include parameters480p.js %}
-    parameters.customToolBar = "0 | 501 | 5 | 19 | 15 | 2 | 18 | 8 | 10 | 100001 | 9 | 4 " //| 3 | 100002 | 53";
+    parameters.customToolBar = "0 | 501 | 5 | 19 | 15 | 2 | 18 | 10 | 100001 | 8 | 9 | 4 " //| 3 | 100002 | 53";
 	parameters.ggbBase64 = "{% base64 ggb/Level6.ggb %}" ;	
 </script>
 
@@ -30,8 +30,8 @@ You have unlocked a new tool: Constructing parallel lines! Go to <a href="/Level
 <script type="text/javascript">
 {% include testobjects.js %}
 
-checkdirection("linePerp",0,0);
-checkdirection("linePar",0,0);
+checkdirection("linePerp",0.1,-0.2);
+checkdirection("linePar",0.3,0.2);
 
 if (drawn("segmentPerp")){
 	Command('progress = 50');
