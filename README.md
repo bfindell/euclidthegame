@@ -4,12 +4,12 @@ Euclid The Game
 The goal of this project is to gamify geometric challanges. We use the [GeoGebra](http://www.geogebra.org) software for this. This game is MIT licensed; see the LICENSE file.
 
 ### Message January 2023 (from Brad Findell)
-Kasper Peulen's brilliant game has been borrowed and rehosted at https://euclid.findell.org.  We have squashed bugs, improved the GeoGebra functionality of the apps, and made some edits.  New levels are in development!  
+Kasper Peulen's brilliant game has been borrowed and rehosted at https://euclid.findell.org.  We have squashed bugs, improved the GeoGebra functionality of the apps, made some edits, and added new levels.
 
-Important notes: 
+Notes: 
 * Peulen's source code requires Jekyll, a simple, blog-aware, static site generator.  See https://jekyllrb.com/docs/installation/.
-  After Jekyll is installed, from the main directory the command `jekyll build` will build the site in a subdirectory `_site`.
-  The command `jekyll serve` will serve the site locally for debugging.  
+* After Jekyll is installed, from the main directory the command `jekyll build` will build the site in a subdirectory `_site`.
+* The command `jekyll serve` will serve the site locally for debugging.  
 * The javascript code below is an early version from Peulen.  For the current version, see the file `_includes/testobjects.js`.
 * At one point, there were plans for an iOS game.  See https://www.facebook.com/euclidthegame.
 
