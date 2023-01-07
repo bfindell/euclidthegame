@@ -8,7 +8,7 @@ Kasper Peulen's brilliant game has been borrowed and rehosted at https://euclid.
 
 Notes: 
 * Peulen's source code requires Jekyll, a simple, blog-aware, static site generator.  See https://jekyllrb.com/docs/installation/.
-* After Jekyll is installed, from the main directory the command `jekyll build` will build the site in a subdirectory `_site`.
+* After Jekyll is installed, from the main directory the command `jekyll build` will build the site in the subdirectory `_site`.
 * The command `jekyll serve` will serve the site locally for debugging.  
 * The javascript code below is an early version from Peulen.  For the current version, see the file `_includes/testobjects.js`.
 * At one point, there were plans for an iOS game.  See https://www.facebook.com/euclidthegame.
