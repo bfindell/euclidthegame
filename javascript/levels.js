@@ -144,32 +144,27 @@ var levels = [
 	},
 	{
 		// 29
-		all: 0,
+		all: 3,
 		primitive: 0
 	},
 	{
 		// 30
-		all: 0,
+		all: 2,
 		primitive: 0
 	},
 	{
 		// 31
-		all: 0,
+		all: 6,
 		primitive: 0
 	},
 	{
 		// 32
-		all: 0,
+		all: 4,
 		primitive: 0
 	},
 	{
 		// 33
-		all: 0,
-		primitive: 0
-	},
-	{
-		// 34
-		all: 0,
+		all: 6,
 		primitive: 0
 	}
 ];

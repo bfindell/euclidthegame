@@ -9,6 +9,16 @@ number: 3
 	<b>Goal:</b> Construct a line (or segment or ray) that bisects the given angle.
 </p>
 
+<script>
+$(document).ready(function(){
+  $("#button").click(function(){
+    $("#hint").toggle();
+  });
+});
+</script>
+<p><span id="button"><b>Show hint: &nbsp;</b></span> <span style="display:none" id="hint"> It would help to have points equidistant from A.</span></p>
+
+
 <p id="winningimg">
 <img src="/img/Level3.png"/ >
 </p>
