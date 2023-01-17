@@ -7,10 +7,11 @@ The goal of this project is to gamify geometric challanges. We use the [GeoGebra
 Kasper Peulen's brilliant game has been borrowed and rehosted at https://euclid.findell.org.  We have squashed bugs, improved the GeoGebra functionality of the apps, made some edits, and added new levels.
 
 Notes: 
-* Peulen's source code requires Jekyll, a simple, blog-aware, static site generator.  See https://jekyllrb.com/docs/installation/.
+* The key idea behind this site is javascript code that tests whether GeoGebra objects have been drawn.  For the current version, see the file `_includes/testobjects.js`.
+* The source code requires Jekyll, a simple, blog-aware, static site generator.  See https://jekyllrb.com/docs/installation/.
 * After Jekyll is installed, from the main directory the command `jekyll build` will build the site in the subdirectory `_site`.
 * The command `jekyll serve` will serve the site locally for debugging.  
-* The key idea behind this site is javascript code that tests whether GeoGebra objects ave been drawn.  For the current version, see the file `_includes/testobjects.js`.
+* The command `jekyll serve -d _siteE --layouts _layoutsE` will build the site (in subdirectory `_siteE`) with layouts that omit the navigation menu and the footer. 
 * At one point, there were plans for an iOS game.  See https://www.facebook.com/euclidthegame.
 
 ### Message July 2014 (from Kasper Peulen)
