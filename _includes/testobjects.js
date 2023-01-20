@@ -208,7 +208,7 @@ function LevelCompleted(condition,mincount){  // The parameter mincount is obsol
 				Command('score2 = Text["Perfect! You have done this challenge in a minimum number of moves!", '+abspos("0.35","-0.90")+']');
 			}
 			else if(count <= levels[{{page.number}}].all){
-				Command('score2 = Text["Amzaing! You have a new record for the minimum number of moves!", '+abspos("0.35","-0.90")+']');
+				Command('score2 = Text["Amazing! You have a new record for the minimum number of moves!", '+abspos("0.35","-0.90")+']');
 			}
 		}
 
