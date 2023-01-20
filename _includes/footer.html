@@ -8,7 +8,7 @@ Current records for this level:
 		using all tools:
 		<script>
 			var minmovesAll = levels[{{page.number}}].all;
-			if (minmovesAll === 0) document.write("Not yet determined.");
+			if (minmovesAll === Infinity) document.write("Not yet determined.");
 			else document.write(minmovesAll);
 		</script>
 	</li>
@@ -17,7 +17,7 @@ Current records for this level:
 		using primitive tools only:
 		<script>
 			var minmovesPrimitive = levels[{{page.number}}].primitive;
-			if (minmovesPrimitive === 0) document.write("Not yet determined.");
+			if (minmovesPrimitive === Infinity) document.write("Not yet determined.");
 			else document.write(minmovesPrimitive);
 		</script>
 		<br />

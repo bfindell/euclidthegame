@@ -60,7 +60,7 @@ var levels = [
 	{
 		// 12
 		all: 4,
-		primitive: 0
+		primitive: Infinity
 	},
 	{
 		// 13
@@ -130,41 +130,41 @@ var levels = [
 	{
 		// 26
 		all: 3,
-		primitive: 0
+		primitive: Infinity
 	},
 	{
 		// 27
 		all: 4,
-		primitive: 0
+		primitive: Infinity
 	},
 	{
 		// 28
 		all: 5,
-		primitive: 0
+		primitive: Infinity
 	},
 	{
 		// 29
 		all: 3,
-		primitive: 0
+		primitive: Infinity
 	},
 	{
 		// 30
 		all: 2,
-		primitive: 0
+		primitive: Infinity
 	},
 	{
 		// 31
 		all: 6,
-		primitive: 0
+		primitive: Infinity
 	},
 	{
 		// 32
 		all: 4,
-		primitive: 0
+		primitive: Infinity
 	},
 	{
 		// 33
 		all: 6,
-		primitive: 0
+		primitive: 7
 	}
 ];

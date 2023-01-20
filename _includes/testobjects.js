@@ -81,6 +81,10 @@ function newObjectListener(obj) {
 				primitives = false;
 				console.log("Compass tool.");
 			}
+			if(cmdString.substring(0,4) == "Line" && (isLowerCase(cmdString.substring(lastcomma+2,lastcomma+3)))) {
+				primitives = false;
+				console.log("Parallel line tool.");
+			}
 		}
 
 // The following code disallows (by deletion) the angle bisector of a straight angle.  
@@ -192,12 +196,19 @@ function LevelCompleted(condition,mincount){  // The parameter mincount is obsol
 		$( "#hidden" ).slideDown(1000);	
 		// $( "#hiddencomments" ).toggle();	 Used for disqus comments.
 		var count = ggbApplet.getValue("countnumber");
-		if (primitives && (count === levels[{{page.number}}].primitive)){
-			Command('score2 = Text["Perfect! You have done this challenge in a minimum number of primitive moves!", '+abspos("0.35","-0.90")+']');
-		}
-		if (!primitives) {
+		if (primitives) {
+			if (count === levels[{{page.number}}].primitive){
+				Command('score2 = Text["Perfect! You have done this challenge in a minimum number of primitive moves!", '+abspos("0.35","-0.90")+']');
+			}
+			else if (count <= levels[{{page.number}}].primitive){
+				Command('score2 = Text["Amazing! You have a new record for the minimum number of primitive moves!", '+abspos("0.35","-0.90")+']');
+			}}
+		else {
 			if(count === levels[{{page.number}}].all){
 				Command('score2 = Text["Perfect! You have done this challenge in a minimum number of moves!", '+abspos("0.35","-0.90")+']');
+			}
+			else if(count <= levels[{{page.number}}].all){
+				Command('score2 = Text["Amzaing! You have a new record for the minimum number of moves!", '+abspos("0.35","-0.90")+']');
 			}
 		}
 
