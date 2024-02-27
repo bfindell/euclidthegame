@@ -144,27 +144,27 @@ var levels = [
 	},
 	{
 		// 29
-		all: 3,
-		primitive: Infinity
+		all: 2,
+		primitive: 6
 	},
 	{
 		// 30
 		all: 2,
-		primitive: Infinity
+		primitive: 2
 	},
 	{
 		// 31
-		all: 6,
-		primitive: Infinity
-	},
-	{
-		// 32
 		all: 4,
 		primitive: Infinity
 	},
 	{
+		// 32
+		all: 3,
+		primitive: 10
+	},
+	{
 		// 33
-		all: 6,
-		primitive: 7
+		all: 4,
+		primitive: 5
 	}
 ];
