@@ -60,7 +60,7 @@ var levels = [
 	{
 		// 12
 		all: 4,
-		primitive: 10
+		primitive: 8
 	},
 	{
 		// 13
@@ -155,7 +155,7 @@ var levels = [
 	{
 		// 31
 		all: 4,
-		primitive: Infinity
+		primitive: 10
 	},
 	{
 		// 32
