@@ -60,7 +60,7 @@ var levels = [
 	{
 		// 12
 		all: 4,
-		primitive: Infinity
+		primitive: 10
 	},
 	{
 		// 13

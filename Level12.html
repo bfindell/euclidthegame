@@ -33,11 +33,11 @@ checkobject("side1b",0,0.5);
 if (drawn("side1a")||drawn("side1b")){
 	Command('progress = 25');
 }
-checkobject("side3a",0,0.5);
-checkobject("side3b",0,0.5);
-if (drawn("side3a")||drawn("side3b")){
-	Command('progress = 50');
-}
+//checkobject("side3a",0,0.5);
+//checkobject("side3b",0,0.5);
+//if (drawn("side3a")||drawn("side3b")){
+//	Command('progress = 50');
+//}
 checkobject("target2a",0,0.5);
 checkobject("target2b",0,0.5);
 checkobject("target2c",0,0.5);
@@ -49,8 +49,8 @@ if (drawn("target2a")||drawn("target2b")||drawn("target2c")||drawn("target2d")){
 
 checkpointontarget("target3a",0,0.5);
 checkpointontarget("target3b",0,0.5);
-checkdirection("target3a",0,0);
-checkdirection("target3b",0,0);
+checkdirection("target3a",0,0.5);
+checkdirection("target3b",0,0.5);
 
 LevelCompleted(drawn("target3a")||drawn("target3b"),4);
 

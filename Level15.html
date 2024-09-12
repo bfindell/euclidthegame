@@ -8,6 +8,15 @@ number: 15
 <p id="goal"><b>Goal:</b> Construct the incircle of the triangle. An incircle is a circle fully contained in a triangle and is tangent to all three sides.
 </p>
 
+<script>
+$(document).ready(function(){
+  $("#button").click(function(){
+    $("#hint").toggle();
+  });
+});
+</script>
+<p><span id="button"><b>Show hint: &nbsp;</b></span> <span style="display:none" id="hint">Once you have identified the center of the incircle, your eyes can trick you into choosing the wrong radius.  What must be true about a tangent to a circle and the radius to that point of tangency?</span></p>
+
 <p id="winningimg">
 <img src="/img/Level{{page.number}}.png"/ >
 </p>
