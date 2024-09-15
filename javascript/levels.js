@@ -160,7 +160,7 @@ var levels = [
 	{
 		// 32
 		all: 3,
-		primitive: 10
+		primitive: 6
 	},
 	{
 		// 33
