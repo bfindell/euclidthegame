@@ -154,13 +154,13 @@ var levels = [
 	},
 	{
 		// 31
-		all: 4,
+		all: 3,
 		primitive: 10
 	},
 	{
 		// 32
 		all: 3,
-		primitive: 6
+		primitive: 5
 	},
 	{
 		// 33

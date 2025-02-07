@@ -4,7 +4,7 @@ Euclid The Game
 The goal of this project is to gamify geometric challanges. We use the [GeoGebra](http://www.geogebra.org) software for this. This game is MIT licensed; see the LICENSE file.
 
 ### Message January 2023 (from Brad Findell)
-Kasper Peulen's brilliant game has been borrowed and rehosted at https://euclid.findell.org.  We have squashed bugs, improved the GeoGebra functionality of the apps, made some edits, and added new levels.
+Kasper Peulen's brilliant game has been borrowed and rehosted at https://euclid.findell.org since 2020.  We have squashed bugs, improved the GeoGebra functionality of the apps, made some edits, and added new levels.
 
 Notes: 
 * The key idea behind this site is javascript code that tests whether GeoGebra objects have been drawn.  For the current version, see the file `_includes/testobjects.js`.
