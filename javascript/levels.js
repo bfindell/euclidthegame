@@ -140,7 +140,7 @@ var levels = [
 	{
 		// 28
 		all: 5,
-		primitive: Infinity
+		primitive: 17
 	},
 	{
 		// 29
